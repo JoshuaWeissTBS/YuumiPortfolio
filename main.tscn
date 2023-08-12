@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5fhrnbabxh6"]
+
+[ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_n73ji"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s0nld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsuod"]
+size = Vector3(7, 1, 7)
+
+[node name="Main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(4.9403, 0, 0, 0, 1, 0, 0, 0, 6.74446, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(3.49206, 0, 0, 0, 1, 0, 0, 0, 3.35322, 0, 0, 0)
+mesh = SubResource("PlaneMesh_s0nld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_vsuod")
+
+[node name="PlayerController" parent="." instance=ExtResource("1_n73ji")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999994, 0.00349065, -8.42081e-11, -0.00257769, 0.738451, 0.674302, 0.00235375, -0.674298, 0.738455, -0.316043, 8.74644, 11.4078)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.737254, 0.675616, 0, -0.675616, 0.737254, 0, 21.1946, 0)
