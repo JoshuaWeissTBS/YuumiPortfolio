@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bplngsskbro10"]
+[gd_scene load_steps=31 format=3 uid="uid://bplngsskbro10"]
 
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
@@ -41,13 +41,16 @@ tonemap_mode = 3
 [sub_resource type="BoxShape3D" id="BoxShape3D_gko8b"]
 size = Vector3(14.1742, 34.1954, 9.3244)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxokf"]
+size = Vector3(67.1674, 65.6826, 22.3166)
+
 [node name="path" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3mqh")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_pf4hl")]
-transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0.0380726, 1.02574, -10.1589)
+transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
 
 [node name="Camera3D" type="Camera3D" parent="PlayerController"]
 transform = Transform3D(12.5, 0, 0, 0, 10.0352, 7.45281, 0, -7.45281, 10.0352, 0, 55.266, 80.97)
@@ -142,7 +145,7 @@ transform = Transform3D(4.97593, 0, 0, 0, 4.97593, 0, 0, 0, 4.97593, 8.32245, 0.
 transform = Transform3D(4.97593, 0, 0, 0, 4.97593, 0, 0, 0, 4.97593, 31.7638, 12.6624, 8.24572)
 
 [node name="Bush_Large_Flowers" parent="Node" instance=ExtResource("20_guq6i")]
-transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, 2.3905, -0.381436, -22.8594)
+transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, 3.83943, -0.381436, -22.8594)
 
 [node name="Bush_Large_Flowers2" parent="Node" instance=ExtResource("20_guq6i")]
 transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, -7.57335, -0.22456, -24.5472)
@@ -217,10 +220,13 @@ transform = Transform3D(-3.60508, -0.47513, -2.09939, -0.548632, 4.16279, 0, 2.0
 transform = Transform3D(4.1032, -1.51489, 0, 1.51489, 4.1032, 0, 0, 0, 4.37392, 10.9293, 1.2926, -10.0306)
 
 [node name="Rock_10" parent="Node" instance=ExtResource("28_tlwul")]
-transform = Transform3D(60.0689, -0.720146, 0, 5.53436, 7.81633, 0, 0, 0, 20.1716, 10.9293, 12.8234, 59.9426)
+transform = Transform3D(55.5782, -0.219166, 0, 5.12062, 2.37879, 0, 0, 0, 18.2236, 10.9319, 12.8234, 61.5057)
+
+[node name="Rock_13" parent="Node" instance=ExtResource("28_tlwul")]
+transform = Transform3D(63.1926, -1.12662, 0, 5.82216, 12.2281, 0, 0, 0, 20.1716, -26.607, 6.86452, 59.9426)
 
 [node name="Rock_11" parent="Node" instance=ExtResource("28_tlwul")]
-transform = Transform3D(-61.2486, 0.940545, 1.44222, 5.65752, 10.2347, 0, -4.39035, 0.067419, -20.12, 38.2733, 12.1634, 51.6242)
+transform = Transform3D(-49.874, 1.08845, -17.8546, 6.07627, 15.622, 0, 43.1519, -0.941745, -20.6359, 35.3087, 4.42789, 54.8654)
 
 [node name="Bush" parent="Node" instance=ExtResource("25_1yg7s")]
 transform = Transform3D(6.15328, -0.684112, 0, 0.684112, 6.15328, 0, 0, 0, 6.19119, 30.4916, 11.552, 42.9403)
@@ -237,8 +243,15 @@ transform = Transform3D(3.78526, 0, 5.44323, 0, 6.63001, 0, -5.44323, 0, 3.78526
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="House_1" parent="StaticBody3D" instance=ExtResource("7_ikmok")]
-transform = Transform3D(6.49697, 0, -0.282506, 0, 4.71313, 0, 0.562813, 0, 3.26118, -1.45541, -0.428746, -28.2846)
+transform = Transform3D(9.34144, 0, -0.406191, 0, 6.77661, 0, 0.80922, 0, 4.68897, -1.45541, -0.428746, -28.2846)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.999173, 0, -0.040655, 0, 1, 0, 0.040655, 0, 0.999173, -1.40421, 0, -28.9)
 shape = SubResource("BoxShape3D_gko8b")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.9543)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.91404)
+shape = SubResource("BoxShape3D_qxokf")
