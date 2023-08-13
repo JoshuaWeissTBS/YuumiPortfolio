@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://discuaxmed1mh"]
+[gd_scene load_steps=9 format=3 uid="uid://discuaxmed1mh"]
 
 [ext_resource type="Texture2D" uid="uid://3f2k4aobl4t6" path="res://assets/nature/maple_trees/MapleTree_Bark.png" id="1_6qh2y"]
 [ext_resource type="Texture2D" uid="uid://cvbmpferrj0c4" path="res://assets/nature/maple_trees/MapleTree_Bark_Normal.png" id="2_yq6wj"]
@@ -75,8 +75,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k64s4")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i0wig"]
+height = 8.55387
+radius = 0.366951
+
 [node name="MapleTree_1" type="Node3D"]
 
 [node name="MapleTree_12" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_vcr1a")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MapleTree_12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapleTree_12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.32829, 0)
+shape = SubResource("CylinderShape3D_i0wig")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7u1qqakjjc6g"]
+[gd_scene load_steps=9 format=3 uid="uid://c7u1qqakjjc6g"]
 
 [ext_resource type="Texture2D" uid="uid://3f2k4aobl4t6" path="res://assets/nature/maple_trees/MapleTree_Bark.png" id="1_e1yap"]
 [ext_resource type="Texture2D" uid="uid://cvbmpferrj0c4" path="res://assets/nature/maple_trees/MapleTree_Bark_Normal.png" id="2_f60yy"]
@@ -22,6 +22,9 @@ cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_d3iuh")
 metallic = 1.0
+distance_fade_mode = 1
+distance_fade_min_distance = 10.0
+distance_fade_max_distance = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p6gvu"]
 _surfaces = [{
@@ -75,8 +78,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p6gvu")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_er4wx"]
+height = 9.02951
+radius = 0.419464
+
 [node name="MapleTree_5" type="Node3D"]
 
 [node name="MapleTree_52" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_vlctu")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MapleTree_52"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapleTree_52/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.46763, 0)
+shape = SubResource("CylinderShape3D_er4wx")

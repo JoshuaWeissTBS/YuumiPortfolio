@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bptn6hics3rvh"]
 
 [ext_resource type="Texture2D" uid="uid://ciggnwup7c54v" path="res://assets/nature/birch_trees/BirchTree_Bark.png" id="1_abtv6"]
 [ext_resource type="Texture2D" uid="uid://c3nte1kf8amh3" path="res://assets/nature/birch_trees/BirchTree_Bark_Normal.png" id="2_c2r5w"]
@@ -22,6 +22,7 @@ cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_apc3b")
 metallic = 1.0
+distance_fade_mode = 1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_15l6n"]
 _surfaces = [{
