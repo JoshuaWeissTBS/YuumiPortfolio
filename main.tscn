@@ -24,7 +24,7 @@ shape = SubResource("BoxShape3D_vsuod")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999994, 0.00349065, -8.42081e-11, -0.00257769, 0.738451, 0.674302, 0.00235375, -0.674298, 0.738455, -0.316043, 8.74644, 11.4078)
+transform = Transform3D(0.999994, 0.00263043, -0.00229467, 0, 0.657375, 0.753563, 0.00349065, -0.753559, 0.657371, -0.316043, 18.3218, 9.98703)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.737254, 0.675616, 0, -0.675616, 0.737254, 0, 21.1946, 0)

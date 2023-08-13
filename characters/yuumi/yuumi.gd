@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const MAX_ROTATE_SPEED = 10
+const MAX_ROTATE_SPEED = 3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -12,6 +12,8 @@ func turn_towards(target_direction: Vector3, max_angular_speed: float, delta):
 	# face the direction smoothly
 	var local_target_direction: Vector3 = $Player.to_local($Player.global_transform.origin + target_direction)
 	var angle_to_target = atan2(local_target_direction.x, local_target_direction.z)
+	var movement_animation_tween = get_tree().create_tween()
+	movement_animation_tween.tween_property($AnimationTree, "parameters/Walking/blend_position", Vector2(-angle_to_target, target_direction.length()), 0.24)
 	var current_rotation: Quaternion = $Player.global_transform.basis.get_rotation_quaternion()
 	var max_rotation_angle = delta * max_angular_speed
 	var max_rotation: Quaternion = Quaternion(Vector3.UP, max_rotation_angle * sign(angle_to_target))
@@ -34,14 +36,13 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#var quatDirection = Quaternion(dihow torection.x, direction.y, direction.z, 1)
-	
-	$AnimationTree.set("parameters/Walking/blend_position", input_dir)
+
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, 1)
+		velocity.z = move_toward(velocity.z, 0, 1)
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
 
-	move_and_slide()
+	move_and_slide() 
