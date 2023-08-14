@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://biditustwklea"]
+
+[ext_resource type="PackedScene" uid="uid://caevbumkwwt7h" path="res://assets/objects/lost_chapter_particle.glb" id="1_ihkoq"]
+
+[node name="lost_chapter_particle" instance=ExtResource("1_ihkoq")]
