@@ -258,4 +258,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.91404)
 shape = SubResource("BoxShape3D_qxokf")
 
 [node name="lost_chapter2" parent="." instance=ExtResource("27_sh7uk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15443, 2.06654, -5.36438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
