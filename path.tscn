@@ -91,7 +91,7 @@ script = ExtResource("1_kqyrg")
 offset = Vector3(0, 12.85, 19.305)
 smooth_speed = 2.5
 
-[node name="PlayerController" parent="." instance=ExtResource("1_pf4hl")]
+[node name="PlayerController" parent="." groups=["PLAYER"] instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
 
 [node name="Node" type="Node" parent="."]
@@ -294,6 +294,7 @@ shape = SubResource("BoxShape3D_qxokf")
 
 [node name="lost_chapter2" parent="." instance=ExtResource("27_sh7uk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
+portfolio_section = "about_me"
 
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
 transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)

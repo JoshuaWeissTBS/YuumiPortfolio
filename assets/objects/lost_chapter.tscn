@@ -1,9 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://blqd6oc0xgg5x"]
+[gd_scene load_steps=31 format=3 uid="uid://blqd6oc0xgg5x"]
 
 [ext_resource type="Material" uid="uid://bwuoskgcfqas5" path="res://assets/objects/lost_chapter_uncollected.tres" id="2_e5bm8"]
 [ext_resource type="Material" uid="uid://boslga64m2qu" path="res://assets/objects/lost_chapter_collected.tres" id="2_jx0vt"]
 [ext_resource type="Script" path="res://assets/objects/lost_chapter.gd" id="2_pd7h8"]
 [ext_resource type="ArrayMesh" uid="uid://bqk7tiy3rc368" path="res://assets/objects/lost_chapter_particle.res" id="3_hxuqw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a3nhc"]
+height = 4.30618
+radius = 1.15037
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pq077"]
 _surfaces = [{
@@ -293,8 +297,14 @@ script = ExtResource("2_pd7h8")
 collected_tres = ExtResource("2_jx0vt")
 uncollected_tres = ExtResource("2_e5bm8")
 
+[node name="PlayerInteractionRange" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInteractionRange"]
+shape = SubResource("CylinderShape3D_a3nhc")
+
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749717, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697825, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0934176, 0)
@@ -357,3 +367,5 @@ active = true
 parameters/Collected/current_state = "collected"
 parameters/Collected/transition_request = ""
 parameters/Collected/current_index = 0
+
+[connection signal="body_entered" from="PlayerInteractionRange" to="." method="_on_player_interaction_range_body_entered"]

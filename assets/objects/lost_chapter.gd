@@ -2,11 +2,11 @@ extends Node3D
 
 @export var collected_tres: StandardMaterial3D
 @export var uncollected_tres: StandardMaterial3D
+@export var portfolio_section: String # Ex: about_me
 
-func collect():
+func collect() -> String:
 	# TODO: play sfx
-	# TOOD: return data required to open portfolio info
-	
+
 	$AnimationTree.set("parameters/Collected/transition_request", "collected")
 	
 	# Override materials
@@ -24,3 +24,10 @@ func collect():
 	# Stop particles and dimmed light
 	$Node3D/GPUParticles3D.emitting = false
 	$Node3D/OmniLight3D.omni_range = 2.0
+	
+	return portfolio_section
+
+
+func _on_player_interaction_range_body_entered(body: Node3D):
+	if body.is_in_group("PLAYER"):
+		collect()
