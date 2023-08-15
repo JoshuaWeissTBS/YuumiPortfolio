@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=38 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
 [ext_resource type="PackedScene" uid="uid://cvr8nvxm8mhca" path="res://assets/nature/rocks/rock_4.tscn" id="27_xkwp0"]
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
+[ext_resource type="ArrayMesh" uid="uid://einv7shagj1d" path="res://assets/nature/petals/petals_4.res" id="29_6y62g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -47,7 +48,36 @@ size = Vector3(14.1742, 34.1954, 9.3244)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxokf"]
 size = Vector3(67.1674, 65.6826, 22.3166)
 
+[sub_resource type="Curve" id="Curve_k205i"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2djuw"]
+curve = SubResource("Curve_k205i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k5m66"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 40)
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+gravity = Vector3(-0.1, -0.2, 0)
+angular_velocity_min = -2.0
+angular_velocity_max = 2.0
+angular_velocity_curve = SubResource("CurveTexture_2djuw")
+tangential_accel_min = 0.1
+tangential_accel_max = 0.1
+angle_min = -131.6
+angle_max = 204.7
+turbulence_noise_speed_random = 0.0
+
 [node name="path" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3mqh")
@@ -246,19 +276,19 @@ transform = Transform3D(-0.135236, 0, -6.54126, 0, 4.30393, 0, 3.69865, 0, -0.23
 [node name="Rock_9" parent="Node" instance=ExtResource("24_l08mv")]
 transform = Transform3D(3.78526, 0, 5.44323, 0, 6.63001, 0, -5.44323, 0, 3.78526, 13.3232, 12.5477, -50.6555)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Node"]
 
-[node name="House_1" parent="StaticBody3D" instance=ExtResource("7_ikmok")]
+[node name="House_1" parent="Node/StaticBody3D" instance=ExtResource("7_ikmok")]
 transform = Transform3D(9.34144, 0, -0.406191, 0, 6.77661, 0, 0.80922, 0, 4.68897, -1.45541, -0.428746, -28.2846)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D"]
 transform = Transform3D(0.999173, 0, -0.040655, 0, 1, 0, 0.040655, 0, 0.999173, -1.40421, 0, -28.9)
 shape = SubResource("BoxShape3D_gko8b")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.9543)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.91404)
 shape = SubResource("BoxShape3D_qxokf")
 
@@ -267,3 +297,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
 
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
 transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96089, 24.2465, -16.9115)
+amount = 100
+lifetime = 30.0
+preprocess = 10.0
+randomness = 1.0
+visibility_aabb = AABB(-10.5088, -25.4599, -38.8915, 21.0176, 39.1941, 87.9226)
+process_material = SubResource("ParticleProcessMaterial_k5m66")
+draw_pass_1 = ExtResource("29_6y62g")

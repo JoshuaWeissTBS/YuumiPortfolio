@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bhr2wpf3rolsy"
-path="res://.godot/imported/Petals_2.gltf-c2469a480b6be8dcc5794b812c292d5d.scn"
+uid="uid://dyxw82p1plafq"
+path="res://.godot/imported/Petals_3.gltf-01edd81932ebaecb09efacf15978e666.scn"
 
 [deps]
 
-source_file="res://assets/nature/glTF/Petals_2.gltf"
-dest_files=["res://.godot/imported/Petals_2.gltf-c2469a480b6be8dcc5794b812c292d5d.scn"]
+source_file="res://assets/nature/petals/Petals_3.gltf"
+dest_files=["res://.godot/imported/Petals_3.gltf-01edd81932ebaecb09efacf15978e666.scn"]
 
 [params]
 
