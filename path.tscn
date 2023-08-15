@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://doii1dhda4kak"]
+[gd_scene load_steps=33 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cs1bxnfvikk4n" path="res://assets/nature/rocks/rock_2.tscn" id="25_f8k3x"]
 [ext_resource type="PackedScene" uid="uid://1pma402cs8gn" path="res://assets/nature/rocks/rock_3.tscn" id="26_bakm0"]
 [ext_resource type="PackedScene" uid="uid://c5nncwrd84jyk" path="res://characters/book/book.tscn" id="27_bkfm4"]
-[ext_resource type="PackedScene" uid="uid://ckna161sryqtu" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
+[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
 [ext_resource type="PackedScene" uid="uid://cvr8nvxm8mhca" path="res://assets/nature/rocks/rock_4.tscn" id="27_xkwp0"]
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 

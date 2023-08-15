@@ -23,3 +23,9 @@ window/size/viewport_height=1080
 [filesystem]
 
 import/fbx/enabled=false
+
+[layer_names]
+
+3d_physics/layer_1="Objects"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Ground"

@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckna161sryqtu"]
+[gd_scene load_steps=16 format=3 uid="uid://blqd6oc0xgg5x"]
 
 [ext_resource type="Texture2D" uid="uid://dddx3quastbya" path="res://assets/objects/lost_chapter_lost_chapter_texture.png" id="1_lh3wj"]
 [ext_resource type="Script" path="res://assets/objects/lost_chapter.gd" id="2_pd7h8"]
-[ext_resource type="ArrayMesh" uid="uid://boa5q6b8ry1f" path="res://assets/objects/lost_chapter_particle.res" id="3_hxuqw"]
+[ext_resource type="ArrayMesh" uid="uid://bqk7tiy3rc368" path="res://assets/objects/lost_chapter_particle.res" id="3_hxuqw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ru7s"]
 resource_name = "Material.001"

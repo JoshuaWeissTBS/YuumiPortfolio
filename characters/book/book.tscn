@@ -1,10 +1,9 @@
-[gd_scene load_steps=75 format=3 uid="uid://c5nncwrd84jyk"]
+[gd_scene load_steps=77 format=3 uid="uid://c5nncwrd84jyk"]
 
 [ext_resource type="Texture2D" uid="uid://cid3vreaf8m5a" path="res://assets/objects/book_paper_side_texture.png" id="1_fofr2"]
 [ext_resource type="Script" path="res://characters/book/book.gd" id="1_xy6bt"]
 [ext_resource type="Texture2D" uid="uid://bkisd6mpsnavw" path="res://assets/objects/book_wildtextures_brown-drum-leather.png" id="2_fn4l0"]
 [ext_resource type="Texture2D" uid="uid://bcytltv31md4f" path="res://assets/objects/book_brass-texture.png" id="3_5yccw"]
-[ext_resource type="Shader" path="res://characters/yuumi/shadow.gdshader" id="5_le6mb"]
 
 [sub_resource type="Animation" id="Animation_jehah"]
 resource_name = "hovering"
@@ -22,11 +21,71 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r7qoi"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.00713, 3.14159, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbbn4"]
 _data = {
-"hovering": SubResource("Animation_jehah")
+"hovering": SubResource("Animation_jehah"),
+"moving": SubResource("Animation_r7qoi")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skt1x"]
+animation = &"hovering"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hqkd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_his8x"]
+animation = &"moving"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_05uv2"]
+graph_offset = Vector2(-602.82, 72.5743)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_skt1x")
+nodes/Idle/position = Vector2(-360, 140)
+nodes/MovementBlend/node = SubResource("AnimationNodeBlend2_6hqkd")
+nodes/MovementBlend/position = Vector2(-80, 160)
+nodes/Moving/node = SubResource("AnimationNodeAnimation_his8x")
+nodes/Moving/position = Vector2(-380, 280)
+node_connections = [&"output", 0, &"MovementBlend", &"MovementBlend", 0, &"Idle", &"MovementBlend", 1, &"Moving"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d7t5"]
 resource_name = "Paper"
@@ -1075,22 +1134,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ivlwx")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mb26u"]
-shader = ExtResource("5_le6mb")
-shader_parameter/lod = 0.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_e7kud"]
+radius = 0.44455
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47gyf"]
-next_pass = SubResource("ShaderMaterial_mb26u")
-transparency = 1
-albedo_color = Color(0, 0, 0, 0.745098)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_fhrxw"]
-material = SubResource("StandardMaterial3D_47gyf")
-top_radius = 1.627
-bottom_radius = 0.0
-height = 0.001
-
-[node name="Book" type="Node3D"]
+[node name="Book" type="CharacterBody3D"]
+collision_mask = 5
 script = ExtResource("1_xy6bt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1099,182 +1147,188 @@ libraries = {
 "": SubResource("AnimationLibrary_rbbn4")
 }
 
-[node name="book" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.183091, 0)
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_05uv2")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/MovementBlend/blend_amount = 0.0
 
-[node name="Pages" type="MeshInstance3D" parent="book"]
+[node name="book" type="Node3D" parent="."]
+transform = Transform3D(-0.56, -4.89568e-08, 2.13997e-15, 0, -2.44784e-08, -0.56, 4.89568e-08, -0.56, 2.44784e-08, 0, 0.0634613, 0)
+
+[node name="Node3D" type="Node3D" parent="book"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245762, 0.251268, 0.0882564)
+
+[node name="Pages" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(0, 0, 1.16775, 0, 0.354782, 0, -1.25936, 0, 0, -0.261663, -0.273666, -0.0717514)
 mesh = SubResource("ArrayMesh_6poow")
 skeleton = NodePath("")
 
-[node name="TopBOok" type="MeshInstance3D" parent="book"]
-transform = Transform3D(0, 0, 0.927258, 0, 1, 0, -1, 0, 0, -0.261663, -0.230144, -0.0717514)
+[node name="TopBOok" type="MeshInstance3D" parent="book/Node3D"]
+transform = Transform3D(0, 0, 0.927258, 0, 1, 0, -1, 0, 0, -0.262, -0.23, -0.079)
 mesh = SubResource("ArrayMesh_g8dc5")
 skeleton = NodePath("")
 
-[node name="Spine" type="MeshInstance3D" parent="book"]
+[node name="Spine" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(0, 0, 0.927258, 0, 1, 0, -1.00576, 0, 0, -1.25565, -0.273666, -0.0756668)
 mesh = SubResource("ArrayMesh_m65vt")
 skeleton = NodePath("")
 
-[node name="Empty" type="Node3D" parent="book"]
+[node name="Empty" type="Node3D" parent="book/Node3D"]
 transform = Transform3D(1.00279, -0.0113906, -0.550362, -0.077832, 1.12928, -0.165187, 0.54495, 0.182249, 0.989159, -4.95808, -2.56472, 0.0234752)
 
-[node name="TopBOok_001" type="MeshInstance3D" parent="book"]
+[node name="TopBOok_001" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(0.0217239, 0.0131406, 0.926959, -0.00363007, -0.999906, 0.0122606, 0.999757, -0.00391614, -0.0200975, -0.261663, -0.282323, -0.0950587)
 mesh = SubResource("ArrayMesh_c1nwr")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817582, 0.255652, 0.820257)
 mesh = SubResource("ArrayMesh_o732g")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf2" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf2" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817582, 0.303199, 0.820257)
 mesh = SubResource("ArrayMesh_euqc0")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf3" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf3" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817582, 0.202213, 0.820257)
 mesh = SubResource("ArrayMesh_ciyir")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf4" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf4" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817582, 0.202213, 0.820257)
 mesh = SubResource("ArrayMesh_a6ef5")
 skeleton = NodePath("")
 
-[node name="Plane_007" type="MeshInstance3D" parent="book"]
+[node name="Plane_007" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817582, 0.202213, 0.820257)
 mesh = SubResource("ArrayMesh_g72yg")
 skeleton = NodePath("")
 
-[node name="ShortStemLeaf1" type="MeshInstance3D" parent="book"]
+[node name="ShortStemLeaf1" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.210381, 0.202213, 0.69175)
 mesh = SubResource("ArrayMesh_0wnrh")
 skeleton = NodePath("")
 
-[node name="ShorterStem" type="MeshInstance3D" parent="book"]
+[node name="ShorterStem" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344631, 0.202213, 0.234348)
 mesh = SubResource("ArrayMesh_hxf1b")
 skeleton = NodePath("")
 
-[node name="ShortLeaf" type="MeshInstance3D" parent="book"]
+[node name="ShortLeaf" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0420208, 0.202213, 0.127062)
 mesh = SubResource("ArrayMesh_5lv5g")
 skeleton = NodePath("")
 
-[node name="ShortStemLeaf2" type="MeshInstance3D" parent="book"]
+[node name="ShortStemLeaf2" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.268342, 0.202213, 0.157508)
 mesh = SubResource("ArrayMesh_e7uln")
 skeleton = NodePath("")
 
-[node name="ShortStemLeaf3" type="MeshInstance3D" parent="book"]
+[node name="ShortStemLeaf3" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.952447, 0.202213, 0.157508)
 mesh = SubResource("ArrayMesh_yvxov")
 skeleton = NodePath("")
 
-[node name="ShortStemLeaf4" type="MeshInstance3D" parent="book"]
+[node name="ShortStemLeaf4" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0771251, 0.202213, -0.915839)
 mesh = SubResource("ArrayMesh_enb84")
 skeleton = NodePath("")
 
-[node name="ShortStemLeaf5" type="MeshInstance3D" parent="book"]
+[node name="ShortStemLeaf5" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132888, 0.202213, -1.35874)
 mesh = SubResource("ArrayMesh_6n24j")
 skeleton = NodePath("")
 
-[node name="LongestStem" type="MeshInstance3D" parent="book"]
+[node name="LongestStem" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426794, 0.202213, 0.217206)
 mesh = SubResource("ArrayMesh_p22ca")
 skeleton = NodePath("")
 
-[node name="Plane_008" type="Node3D" parent="book"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78494, 0, 0)
+[node name="Plane_008" type="Node3D" parent="book/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78494, -3.89619e-15, 0)
 
-[node name="Plane_011" type="Node3D" parent="book"]
+[node name="Plane_011" type="Node3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.952447, 0.202213, 0.157508)
 
-[node name="Plane_012" type="Node3D" parent="book"]
+[node name="Plane_012" type="Node3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.952447, 0.202213, 0.157508)
 
-[node name="Gem" type="MeshInstance3D" parent="book"]
+[node name="Gem" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.412033, 0, 0, 0, 1, -0.952447, 0.146191, 0.157508)
 mesh = SubResource("ArrayMesh_tedsn")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_001" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_001" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, 0.845666, 0.255652, 0.832306)
 mesh = SubResource("ArrayMesh_7d1mo")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_002" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_002" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, 0.845666, 0.255652, -1.86671)
 mesh = SubResource("ArrayMesh_2hjxj")
 skeleton = NodePath("")
 
-[node name="Plane" type="MeshInstance3D" parent="book"]
-transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 0, 0, 1, 1.1385, 0.162443, 0.609765)
+[node name="Plane" type="MeshInstance3D" parent="book/Node3D"]
+transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 1.77636e-15, 3.55271e-15, 1, 1.1385, 0.162443, 0.609765)
 mesh = SubResource("ArrayMesh_sfsxr")
 skeleton = NodePath("")
 
-[node name="Plane_001" type="MeshInstance3D" parent="book"]
-transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 0, 0, 1, 1.1385, 0.162443, -0.824153)
+[node name="Plane_001" type="MeshInstance3D" parent="book/Node3D"]
+transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 1.77636e-15, 3.55271e-15, 1, 1.1385, 0.162443, -0.824153)
 mesh = SubResource("ArrayMesh_xdgdj")
 skeleton = NodePath("")
 
-[node name="Plane_002" type="MeshInstance3D" parent="book"]
-transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 0, 0, 1, 1.1385, -0.670355, 0.609765)
+[node name="Plane_002" type="MeshInstance3D" parent="book/Node3D"]
+transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 1.77636e-15, 3.55271e-15, 1, 1.1385, -0.670355, 0.609765)
 mesh = SubResource("ArrayMesh_s0ik7")
 skeleton = NodePath("")
 
-[node name="Plane_004" type="MeshInstance3D" parent="book"]
-transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 0, 0, 1, 1.1385, -0.670355, -0.824153)
+[node name="Plane_004" type="MeshInstance3D" parent="book/Node3D"]
+transform = Transform3D(0.896415, 0.443215, 0, -0.443215, 0.896415, 0, 1.77636e-15, 3.55271e-15, 1, 1.1385, -0.670355, -0.824153)
 mesh = SubResource("ArrayMesh_cbos1")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_003" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_003" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, 0.845666, -0.82836, 0.832306)
 mesh = SubResource("ArrayMesh_g6xft")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_004" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_004" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, 0.845666, -0.82836, -1.86671)
 mesh = SubResource("ArrayMesh_atcng")
 skeleton = NodePath("")
 
-[node name="Cube" type="MeshInstance3D" parent="book"]
+[node name="Cube" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(0.317081, 0, 0, 0, 1.38004, 0, 0, 0, 0.271722, -1.48637, -0.262256, 0.534607)
 mesh = SubResource("ArrayMesh_pohgy")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_005" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_005" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, -1.2764, 0.205869, 0.0958543)
 mesh = SubResource("ArrayMesh_lxvyd")
 skeleton = NodePath("")
 
-[node name="Cube_001" type="MeshInstance3D" parent="book"]
+[node name="Cube_001" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(0.317081, 0, 0, 0, 1.38004, 0, 0, 0, 0.271722, -1.48637, -0.262256, -0.632258)
 mesh = SubResource("ArrayMesh_jfm3v")
 skeleton = NodePath("")
 
-[node name="LongStemLeaf1_006" type="MeshInstance3D" parent="book"]
+[node name="LongStemLeaf1_006" type="MeshInstance3D" parent="book/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, -1.2764, 0.205869, -1.07101)
 mesh = SubResource("ArrayMesh_stwwe")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="book"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.19017e-08, 2.10247)
-light_color = Color(0.0117647, 0, 1, 1)
-light_energy = 1.127
-light_indirect_energy = 0.0
-light_specular = 2.179
-omni_range = 5.406
+[node name="ShadowSpotLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -0.137627, 0.58129, -0.14071)
+light_color = Color(0.701961, 0.701961, 0.701961, 1)
+light_energy = 5.096
+light_negative = true
+spot_range = 60.386
+spot_angle = 11.95
+spot_angle_attenuation = 0.250001
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000202179, -3.00918, 0.00372803)
-
-[node name="Shadow" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273804, 1.04543, -0.00162363)
-mesh = SubResource("CylinderMesh_fhrxw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_e7kud")
