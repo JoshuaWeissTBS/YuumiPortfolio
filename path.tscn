@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://doii1dhda4kak"]
+[gd_scene load_steps=33 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
 [ext_resource type="PackedScene" uid="uid://bh0n2rrqfbt12" path="res://assets/nature/normal_trees/normal_tree_3.tscn" id="5_yhxlk"]
 [ext_resource type="PackedScene" uid="uid://cv0m3aqcuydyf" path="res://assets/nature/normal_trees/normal_tree_4.tscn" id="6_mp6jr"]
-[ext_resource type="PackedScene" uid="uid://7mno0sso6wdi" path="res://assets/House_1.obj" id="7_ikmok"]
+[ext_resource type="PackedScene" path="res://assets/House_1.obj" id="7_ikmok"]
 [ext_resource type="PackedScene" uid="uid://discuaxmed1mh" path="res://assets/nature/maple_trees/maple_tree_1.tscn" id="8_jgm1g"]
 [ext_resource type="PackedScene" uid="uid://djicgxifwc11v" path="res://assets/nature/maple_trees/maple_tree_2.tscn" id="9_y0kwj"]
 [ext_resource type="PackedScene" uid="uid://0tmh7i6mneik" path="res://assets/nature/maple_trees/maple_tree_3.tscn" id="10_x8nhv"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cs1bxnfvikk4n" path="res://assets/nature/rocks/rock_2.tscn" id="25_f8k3x"]
 [ext_resource type="PackedScene" uid="uid://1pma402cs8gn" path="res://assets/nature/rocks/rock_3.tscn" id="26_bakm0"]
 [ext_resource type="PackedScene" uid="uid://c5nncwrd84jyk" path="res://characters/book/book.tscn" id="27_bkfm4"]
-[ext_resource type="PackedScene" uid="uid://ckna161sryqtu" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
+[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
 [ext_resource type="PackedScene" uid="uid://cvr8nvxm8mhca" path="res://assets/nature/rocks/rock_4.tscn" id="27_xkwp0"]
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 

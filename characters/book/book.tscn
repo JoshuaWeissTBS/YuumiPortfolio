@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c5nncwrd84jyk"]
+[gd_scene load_steps=81 format=3 uid="uid://c5nncwrd84jyk"]
 
 [ext_resource type="Texture2D" uid="uid://cid3vreaf8m5a" path="res://assets/objects/book_paper_side_texture.png" id="1_fofr2"]
 [ext_resource type="Script" path="res://characters/book/book.gd" id="1_xy6bt"]
@@ -22,11 +22,83 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r7qoi"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.00713, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbbn4"]
 _data = {
-"hovering": SubResource("Animation_jehah")
+"hovering": SubResource("Animation_jehah"),
+"moving": SubResource("Animation_r7qoi")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skt1x"]
+animation = &"hovering"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_his8x"]
+animation = &"moving"
+
+[sub_resource type="Curve" id="Curve_yo40y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_cutnb"]
+xfade_time = 0.3
+xfade_curve = SubResource("Curve_yo40y")
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "Moving"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_05uv2"]
+graph_offset = Vector2(-515.82, -35.4257)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_skt1x")
+nodes/Idle/position = Vector2(-360, 140)
+nodes/Moving/node = SubResource("AnimationNodeAnimation_his8x")
+nodes/Moving/position = Vector2(-380, 280)
+nodes/Transition/node = SubResource("AnimationNodeTransition_cutnb")
+nodes/Transition/position = Vector2(-160, 120)
+node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Idle", &"Transition", 1, &"Moving"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d7t5"]
 resource_name = "Paper"
@@ -1090,7 +1162,7 @@ top_radius = 1.627
 bottom_radius = 0.0
 height = 0.001
 
-[node name="Book" type="Node3D"]
+[node name="Book" type="CharacterBody3D"]
 script = ExtResource("1_xy6bt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1099,8 +1171,16 @@ libraries = {
 "": SubResource("AnimationLibrary_rbbn4")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_05uv2")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Transition/current_state = "Idle"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+
 [node name="book" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.183091, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0466257, 0)
 
 [node name="Pages" type="MeshInstance3D" parent="book"]
 transform = Transform3D(0, 0, 1.16775, 0, 0.354782, 0, -1.25936, 0, 0, -0.261663, -0.273666, -0.0717514)
