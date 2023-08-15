@@ -23,6 +23,7 @@ func turn_towards(target_direction: Vector3, max_angular_speed: float, delta):
 		$Player.transform.basis = Basis(current_rotation * Quaternion(Vector3.UP, angle_to_target))
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -44,5 +45,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
+	$Shadow.global_position = $RayCast3D.get_collision_point() + Vector3(0, 0.1, 0)
 
-	move_and_slide() 
+	move_and_slide()
+
