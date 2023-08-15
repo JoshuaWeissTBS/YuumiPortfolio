@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
 [ext_resource type="PackedScene" uid="uid://bh0n2rrqfbt12" path="res://assets/nature/normal_trees/normal_tree_3.tscn" id="5_yhxlk"]
 [ext_resource type="PackedScene" uid="uid://cv0m3aqcuydyf" path="res://assets/nature/normal_trees/normal_tree_4.tscn" id="6_mp6jr"]
-[ext_resource type="PackedScene" path="res://assets/House_1.obj" id="7_ikmok"]
+[ext_resource type="PackedScene" uid="uid://7mno0sso6wdi" path="res://assets/House_1.obj" id="7_ikmok"]
 [ext_resource type="PackedScene" uid="uid://discuaxmed1mh" path="res://assets/nature/maple_trees/maple_tree_1.tscn" id="8_jgm1g"]
 [ext_resource type="PackedScene" uid="uid://djicgxifwc11v" path="res://assets/nature/maple_trees/maple_tree_2.tscn" id="9_y0kwj"]
 [ext_resource type="PackedScene" uid="uid://0tmh7i6mneik" path="res://assets/nature/maple_trees/maple_tree_3.tscn" id="10_x8nhv"]
