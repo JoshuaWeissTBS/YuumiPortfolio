@@ -298,7 +298,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
 transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="LeavesParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96089, 24.2465, -16.9115)
 amount = 100
 lifetime = 30.0
