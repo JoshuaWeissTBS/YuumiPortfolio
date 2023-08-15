@@ -1,16 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://blqd6oc0xgg5x"]
+[gd_scene load_steps=30 format=3 uid="uid://blqd6oc0xgg5x"]
 
-[ext_resource type="Texture2D" uid="uid://dddx3quastbya" path="res://assets/objects/lost_chapter_lost_chapter_texture.png" id="1_lh3wj"]
+[ext_resource type="Material" uid="uid://bwuoskgcfqas5" path="res://assets/objects/lost_chapter_uncollected.tres" id="2_e5bm8"]
+[ext_resource type="Material" uid="uid://boslga64m2qu" path="res://assets/objects/lost_chapter_collected.tres" id="2_jx0vt"]
 [ext_resource type="Script" path="res://assets/objects/lost_chapter.gd" id="2_pd7h8"]
 [ext_resource type="ArrayMesh" uid="uid://bqk7tiy3rc368" path="res://assets/objects/lost_chapter_particle.res" id="3_hxuqw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ru7s"]
-resource_name = "Material.001"
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_lh3wj")
-metallic = 0.1
-roughness = 0.836364
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pq077"]
 _surfaces = [{
@@ -33,7 +26,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 60,
 "index_data": PackedByteArray(15, 0, 4, 0, 17, 0, 12, 0, 7, 0, 1, 0, 7, 0, 16, 0, 9, 0, 7, 0, 12, 0, 16, 0, 26, 0, 33, 0, 30, 0, 22, 0, 28, 0, 25, 0, 28, 0, 38, 0, 34, 0, 28, 0, 22, 0, 38, 0, 2, 0, 27, 0, 13, 0, 2, 0, 24, 0, 27, 0, 19, 0, 39, 0, 11, 0, 19, 0, 36, 0, 39, 0, 6, 0, 23, 0, 0, 0, 6, 0, 20, 0, 23, 0, 5, 0, 35, 0, 18, 0, 5, 0, 32, 0, 35, 0, 10, 0, 21, 0, 8, 0, 10, 0, 37, 0, 21, 0, 14, 0, 31, 0, 3, 0, 14, 0, 29, 0, 31, 0),
-"material": SubResource("StandardMaterial3D_7ru7s"),
+"material": ExtResource("2_e5bm8"),
 "name": "Material.001",
 "primitive": 3,
 "vertex_count": 40,
@@ -79,7 +72,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 96,
 "index_data": PackedByteArray(15, 0, 23, 0, 31, 0, 12, 0, 7, 0, 1, 0, 7, 0, 16, 0, 9, 0, 30, 0, 7, 0, 12, 0, 7, 0, 30, 0, 16, 0, 32, 0, 26, 0, 17, 0, 33, 0, 24, 0, 27, 0, 20, 0, 3, 0, 25, 0, 55, 0, 64, 0, 40, 0, 36, 0, 57, 0, 39, 0, 57, 0, 49, 0, 67, 0, 49, 0, 36, 0, 53, 0, 57, 0, 36, 0, 49, 0, 66, 0, 48, 0, 60, 0, 65, 0, 59, 0, 41, 0, 44, 0, 61, 0, 46, 0, 2, 0, 56, 0, 13, 0, 2, 0, 38, 0, 56, 0, 19, 0, 54, 0, 11, 0, 19, 0, 51, 0, 54, 0, 6, 0, 37, 0, 0, 0, 6, 0, 34, 0, 37, 0, 14, 0, 43, 0, 22, 0, 14, 0, 58, 0, 43, 0, 28, 0, 50, 0, 18, 0, 28, 0, 62, 0, 50, 0, 10, 0, 35, 0, 8, 0, 10, 0, 52, 0, 35, 0, 21, 0, 45, 0, 4, 0, 21, 0, 42, 0, 45, 0, 5, 0, 63, 0, 29, 0, 5, 0, 47, 0, 63, 0),
-"material": SubResource("StandardMaterial3D_7ru7s"),
+"material": ExtResource("2_e5bm8"),
 "name": "Material.001",
 "primitive": 3,
 "vertex_count": 68,
@@ -125,7 +118,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 84,
 "index_data": PackedByteArray(15, 0, 4, 0, 17, 0, 23, 0, 27, 0, 8, 0, 12, 0, 22, 0, 1, 0, 22, 0, 10, 0, 26, 0, 10, 0, 12, 0, 16, 0, 22, 0, 12, 0, 10, 0, 35, 0, 42, 0, 39, 0, 30, 0, 54, 0, 49, 0, 31, 0, 36, 0, 33, 0, 36, 0, 46, 0, 43, 0, 46, 0, 31, 0, 51, 0, 36, 0, 31, 0, 46, 0, 9, 0, 52, 0, 25, 0, 9, 0, 47, 0, 52, 0, 2, 0, 38, 0, 14, 0, 2, 0, 34, 0, 38, 0, 19, 0, 48, 0, 11, 0, 19, 0, 45, 0, 48, 0, 20, 0, 32, 0, 0, 0, 20, 0, 28, 0, 32, 0, 6, 0, 29, 0, 21, 0, 6, 0, 53, 0, 29, 0, 5, 0, 44, 0, 18, 0, 5, 0, 41, 0, 44, 0, 24, 0, 55, 0, 7, 0, 24, 0, 50, 0, 55, 0, 13, 0, 40, 0, 3, 0, 13, 0, 37, 0, 40, 0),
-"material": SubResource("StandardMaterial3D_7ru7s"),
+"material": ExtResource("2_e5bm8"),
 "name": "Material.001",
 "primitive": 3,
 "vertex_count": 56,
@@ -173,7 +166,7 @@ _surfaces = [{
 "index_count": 396,
 "index_data": PackedByteArray(14, 0, 22, 0, 4, 0, 24, 0, 13, 0, 19, 0, 14, 0, 24, 0, 22, 0, 13, 0, 24, 0, 14, 0, 13, 0, 72, 0, 57, 0, 62, 0, 55, 0, 67, 0, 13, 0, 62, 0, 72, 0, 9, 0, 13, 0, 14, 0, 53, 0, 9, 0, 38, 0, 49, 0, 9, 0, 53, 0, 9, 0, 62, 0, 13, 0, 62, 0, 17, 0, 55, 0, 17, 0, 29, 0, 7, 0, 17, 0, 32, 0, 29, 0, 9, 0, 17, 0, 62, 0, 49, 0, 17, 0, 9, 0, 17, 0, 36, 0, 32, 0, 36, 0, 40, 0, 27, 0, 36, 0, 43, 0, 40, 0, 49, 0, 36, 0, 17, 0, 36, 0, 46, 0, 43, 0, 36, 0, 49, 0, 46, 0, 2, 0, 71, 0, 64, 0, 59, 0, 73, 0, 69, 0, 59, 0, 74, 0, 73, 0, 61, 0, 66, 0, 75, 0, 75, 0, 72, 0, 62, 0, 75, 0, 66, 0, 72, 0, 66, 0, 57, 0, 72, 0, 73, 0, 75, 0, 62, 0, 73, 0, 74, 0, 75, 0, 74, 0, 61, 0, 75, 0, 69, 0, 67, 0, 55, 0, 69, 0, 73, 0, 67, 0, 73, 0, 62, 0, 67, 0, 64, 0, 74, 0, 59, 0, 64, 0, 71, 0, 74, 0, 71, 0, 61, 0, 74, 0, 99, 0, 112, 0, 102, 0, 112, 0, 83, 0, 82, 0, 86, 0, 112, 0, 99, 0, 112, 0, 86, 0, 83, 0, 147, 0, 99, 0, 96, 0, 99, 0, 89, 0, 86, 0, 89, 0, 133, 0, 116, 0, 89, 0, 129, 0, 133, 0, 147, 0, 89, 0, 99, 0, 135, 0, 148, 0, 138, 0, 148, 0, 89, 0, 147, 0, 148, 0, 129, 0, 89, 0, 101, 0, 148, 0, 135, 0, 91, 0, 101, 0, 95, 0, 118, 0, 101, 0, 91, 0, 101, 0, 129, 0, 148, 0, 101, 0, 126, 0, 129, 0, 122, 0, 101, 0, 118, 0, 106, 0, 122, 0, 110, 0, 101, 0, 123, 0, 126, 0, 123, 0, 122, 0, 106, 0, 123, 0, 101, 0, 122, 0, 79, 0, 77, 0, 143, 0, 142, 0, 140, 0, 149, 0, 142, 0, 149, 0, 150, 0, 145, 0, 151, 0, 136, 0, 151, 0, 148, 0, 147, 0, 151, 0, 147, 0, 136, 0, 136, 0, 147, 0, 96, 0, 149, 0, 148, 0, 151, 0, 149, 0, 151, 0, 150, 0, 150, 0, 151, 0, 145, 0, 140, 0, 135, 0, 138, 0, 140, 0, 138, 0, 149, 0, 149, 0, 138, 0, 148, 0, 77, 0, 142, 0, 150, 0, 77, 0, 150, 0, 143, 0, 143, 0, 150, 0, 145, 0, 5, 0, 87, 0, 15, 0, 5, 0, 85, 0, 87, 0, 52, 0, 128, 0, 48, 0, 52, 0, 132, 0, 128, 0, 54, 0, 139, 0, 68, 0, 54, 0, 134, 0, 139, 0, 37, 0, 131, 0, 51, 0, 37, 0, 114, 0, 131, 0, 6, 0, 100, 0, 16, 0, 6, 0, 93, 0, 100, 0, 1, 0, 144, 0, 70, 0, 1, 0, 80, 0, 144, 0, 16, 0, 134, 0, 54, 0, 16, 0, 100, 0, 134, 0, 12, 0, 103, 0, 18, 0, 12, 0, 98, 0, 103, 0, 65, 0, 97, 0, 56, 0, 65, 0, 137, 0, 97, 0, 41, 0, 109, 0, 28, 0, 41, 0, 105, 0, 109, 0, 20, 0, 113, 0, 25, 0, 20, 0, 104, 0, 113, 0, 68, 0, 141, 0, 58, 0, 68, 0, 139, 0, 141, 0, 23, 0, 81, 0, 21, 0, 23, 0, 111, 0, 81, 0, 70, 0, 146, 0, 60, 0, 70, 0, 144, 0, 146, 0, 10, 0, 115, 0, 39, 0, 10, 0, 88, 0, 115, 0, 33, 0, 92, 0, 30, 0, 33, 0, 119, 0, 92, 0, 63, 0, 78, 0, 0, 0, 63, 0, 76, 0, 78, 0, 35, 0, 117, 0, 31, 0, 35, 0, 121, 0, 117, 0, 21, 0, 84, 0, 3, 0, 21, 0, 81, 0, 84, 0, 26, 0, 120, 0, 34, 0, 26, 0, 108, 0, 120, 0, 15, 0, 90, 0, 11, 0, 15, 0, 87, 0, 90, 0, 44, 0, 107, 0, 42, 0, 44, 0, 124, 0, 107, 0, 30, 0, 94, 0, 8, 0, 30, 0, 92, 0, 94, 0, 58, 0, 76, 0, 63, 0, 58, 0, 141, 0, 76, 0, 47, 0, 125, 0, 45, 0, 47, 0, 127, 0, 125, 0, 56, 0, 98, 0, 12, 0, 56, 0, 97, 0, 98, 0, 60, 0, 137, 0, 65, 0, 60, 0, 146, 0, 137, 0, 50, 0, 127, 0, 47, 0, 50, 0, 130, 0, 127, 0),
 "lods": [0.0530227, PackedByteArray(14, 0, 22, 0, 4, 0, 14, 0, 24, 0, 22, 0, 61, 0, 24, 0, 14, 0, 24, 0, 61, 0, 19, 0, 9, 0, 61, 0, 14, 0, 53, 0, 9, 0, 38, 0, 49, 0, 9, 0, 53, 0, 9, 0, 55, 0, 61, 0, 49, 0, 55, 0, 9, 0, 2, 0, 61, 0, 55, 0, 55, 0, 29, 0, 7, 0, 55, 0, 32, 0, 29, 0, 55, 0, 36, 0, 32, 0, 49, 0, 36, 0, 55, 0, 36, 0, 49, 0, 46, 0, 36, 0, 46, 0, 43, 0, 36, 0, 43, 0, 40, 0, 36, 0, 40, 0, 27, 0, 96, 0, 112, 0, 102, 0, 112, 0, 83, 0, 82, 0, 112, 0, 86, 0, 83, 0, 86, 0, 112, 0, 96, 0, 96, 0, 89, 0, 86, 0, 89, 0, 133, 0, 116, 0, 89, 0, 129, 0, 133, 0, 96, 0, 129, 0, 89, 0, 135, 0, 129, 0, 96, 0, 79, 0, 135, 0, 96, 0, 135, 0, 126, 0, 129, 0, 135, 0, 123, 0, 126, 0, 123, 0, 135, 0, 122, 0, 123, 0, 122, 0, 106, 0, 106, 0, 122, 0, 110, 0, 122, 0, 135, 0, 118, 0, 118, 0, 135, 0, 91, 0, 91, 0, 135, 0, 95, 0, 5, 0, 87, 0, 15, 0, 5, 0, 85, 0, 87, 0, 15, 0, 87, 0, 90, 0, 15, 0, 90, 0, 11, 0, 152, 0, 128, 0, 48, 0, 152, 0, 153, 0, 128, 0, 37, 0, 153, 0, 152, 0, 37, 0, 114, 0, 153, 0, 6, 0, 134, 0, 54, 0, 6, 0, 93, 0, 134, 0, 54, 0, 134, 0, 78, 0, 54, 0, 78, 0, 0, 0, 1, 0, 97, 0, 60, 0, 1, 0, 80, 0, 97, 0, 60, 0, 97, 0, 103, 0, 60, 0, 103, 0, 18, 0, 41, 0, 109, 0, 28, 0, 41, 0, 105, 0, 109, 0, 20, 0, 113, 0, 25, 0, 20, 0, 104, 0, 113, 0, 23, 0, 81, 0, 21, 0, 23, 0, 111, 0, 81, 0, 21, 0, 81, 0, 84, 0, 21, 0, 84, 0, 3, 0, 10, 0, 115, 0, 39, 0, 10, 0, 88, 0, 115, 0, 33, 0, 92, 0, 30, 0, 33, 0, 119, 0, 92, 0, 30, 0, 92, 0, 94, 0, 30, 0, 94, 0, 8, 0, 35, 0, 117, 0, 31, 0, 35, 0, 121, 0, 117, 0, 26, 0, 120, 0, 34, 0, 26, 0, 108, 0, 120, 0, 44, 0, 107, 0, 42, 0, 44, 0, 124, 0, 107, 0, 47, 0, 125, 0, 45, 0, 47, 0, 127, 0, 125, 0, 50, 0, 127, 0, 47, 0, 50, 0, 130, 0, 127, 0)],
-"material": SubResource("StandardMaterial3D_7ru7s"),
+"material": ExtResource("2_e5bm8"),
 "name": "Material.001",
 "primitive": 3,
 "vertex_count": 154,
@@ -214,7 +207,7 @@ hue_variation_min = -0.35
 turbulence_noise_strength = 11.38
 
 [sub_resource type="Animation" id="Animation_nho0l"]
-resource_name = "hovering"
+resource_name = "hovering_uncollected"
 length = 10.0
 loop_mode = 1
 tracks/0/type = "value"
@@ -242,16 +235,66 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 6.28319, 0), Vector3(0.0872665, 6.28319, 0), Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(0, -6.28319, 0), Vector3(0, -6.28319, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wahu"]
-_data = {
-"hovering": SubResource("Animation_nho0l")
+[sub_resource type="Animation" id="Animation_oj2nb"]
+resource_name = "hovering_collected"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 0.25, 0), Vector3(0, 0.75, 0), Vector3(0, 0.25, 0)]
 }
 
-[node name="lost_chapter" type="Node3D"]
+[sub_resource type="Animation" id="Animation_dvwmf"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wahu"]
+_data = {
+"RESET": SubResource("Animation_dvwmf"),
+"hovering_collected": SubResource("Animation_oj2nb"),
+"hovering_uncollected": SubResource("Animation_nho0l")
+}
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wflk2"]
+xfade_time = 2.0
+input_0/name = "collected"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "uncollected"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lavl4"]
+animation = &"hovering_collected"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xjfmw"]
+animation = &"hovering_uncollected"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0kwtp"]
+graph_offset = Vector2(-642.269, -68.9301)
+nodes/Collected/node = SubResource("AnimationNodeTransition_wflk2")
+nodes/Collected/position = Vector2(40, 40)
+nodes/hovering_collected/node = SubResource("AnimationNodeAnimation_lavl4")
+nodes/hovering_collected/position = Vector2(-240, 20)
+nodes/hovering_uncollected/node = SubResource("AnimationNodeAnimation_xjfmw")
+nodes/hovering_uncollected/position = Vector2(-260, 140)
+nodes/output/position = Vector2(300, 80)
+node_connections = [&"output", 0, &"Collected", &"Collected", 0, &"hovering_collected", &"Collected", 1, &"hovering_uncollected"]
+
+[node name="LostChapter" type="Node3D"]
 script = ExtResource("2_pd7h8")
+collected_tres = ExtResource("2_jx0vt")
+uncollected_tres = ExtResource("2_e5bm8")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.98799, 0.0390268, 0.149509, 0, 0.967579, -0.252569, -0.154519, 0.249536, 0.955958, 0, 0.98, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749717, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0934176, 0)
@@ -300,7 +343,17 @@ speed_scale = 0.8
 process_material = SubResource("ParticleProcessMaterial_h2cym")
 draw_pass_1 = ExtResource("3_hxuqw")
 
+[node name="Node" type="Node" parent="Node3D"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2wahu")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_0kwtp")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Collected/current_state = "collected"
+parameters/Collected/transition_request = ""
+parameters/Collected/current_index = 0
