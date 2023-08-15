@@ -58,8 +58,6 @@ v_offset = 0.205
 current = true
 fov = 46.6
 script = ExtResource("1_kqyrg")
-offset = Vector3(0, 12.85, 19.305)
-smooth_speed = 2.5
 
 [node name="PlayerController" parent="." instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
