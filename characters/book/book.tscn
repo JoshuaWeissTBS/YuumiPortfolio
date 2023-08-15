@@ -1,10 +1,9 @@
-[gd_scene load_steps=82 format=3 uid="uid://c5nncwrd84jyk"]
+[gd_scene load_steps=77 format=3 uid="uid://c5nncwrd84jyk"]
 
 [ext_resource type="Texture2D" uid="uid://cid3vreaf8m5a" path="res://assets/objects/book_paper_side_texture.png" id="1_fofr2"]
 [ext_resource type="Script" path="res://characters/book/book.gd" id="1_xy6bt"]
 [ext_resource type="Texture2D" uid="uid://bkisd6mpsnavw" path="res://assets/objects/book_wildtextures_brown-drum-leather.png" id="2_fn4l0"]
 [ext_resource type="Texture2D" uid="uid://bcytltv31md4f" path="res://assets/objects/book_brass-texture.png" id="3_5yccw"]
-[ext_resource type="Shader" path="res://characters/yuumi/shadow.gdshader" id="5_le6mb"]
 
 [sub_resource type="Animation" id="Animation_jehah"]
 resource_name = "hovering"
@@ -73,32 +72,20 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skt1x"]
 animation = &"hovering"
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hqkd"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_his8x"]
 animation = &"moving"
 
-[sub_resource type="Curve" id="Curve_yo40y"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_cutnb"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_yo40y")
-input_0/name = "Idle"
-input_0/auto_advance = false
-input_0/reset = true
-input_1/name = "Moving"
-input_1/auto_advance = false
-input_1/reset = true
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_05uv2"]
-graph_offset = Vector2(-515.82, -35.4257)
+graph_offset = Vector2(-602.82, 72.5743)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_skt1x")
 nodes/Idle/position = Vector2(-360, 140)
+nodes/MovementBlend/node = SubResource("AnimationNodeBlend2_6hqkd")
+nodes/MovementBlend/position = Vector2(-80, 160)
 nodes/Moving/node = SubResource("AnimationNodeAnimation_his8x")
 nodes/Moving/position = Vector2(-380, 280)
-nodes/Transition/node = SubResource("AnimationNodeTransition_cutnb")
-nodes/Transition/position = Vector2(-160, 120)
-node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Idle", &"Transition", 1, &"Moving"]
+node_connections = [&"output", 0, &"MovementBlend", &"MovementBlend", 0, &"Idle", &"MovementBlend", 1, &"Moving"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d7t5"]
 resource_name = "Paper"
@@ -1147,25 +1134,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ivlwx")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mb26u"]
-shader = ExtResource("5_le6mb")
-shader_parameter/lod = 0.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47gyf"]
-next_pass = SubResource("ShaderMaterial_mb26u")
-transparency = 1
-albedo_color = Color(0, 0, 0, 0.745098)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_fhrxw"]
-material = SubResource("StandardMaterial3D_47gyf")
-top_radius = 1.627
-bottom_radius = 0.0
-height = 0.001
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_e7kud"]
-radius = 0.617785
+radius = 0.44455
 
 [node name="Book" type="CharacterBody3D"]
+collision_mask = 5
 script = ExtResource("1_xy6bt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1178,12 +1151,10 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_05uv2")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Transition/current_state = "Idle"
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 0
+parameters/MovementBlend/blend_amount = 0.0
 
 [node name="book" type="Node3D" parent="."]
-transform = Transform3D(-0.56, -4.89568e-08, 2.13997e-15, 0, -2.44784e-08, -0.56, 4.89568e-08, -0.56, 2.44784e-08, 0, 0.117511, 0)
+transform = Transform3D(-0.56, -4.89568e-08, 2.13997e-15, 0, -2.44784e-08, -0.56, 4.89568e-08, -0.56, 2.44784e-08, 0, 0.0376727, 0)
 
 [node name="Node3D" type="Node3D" parent="book"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245762, 0.251268, 0.0882564)
@@ -1350,20 +1321,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00901, -1.2764, 0.205869, -1.0
 mesh = SubResource("ArrayMesh_stwwe")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="book/Node3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.252952, -0.23614, 2.09583)
-light_color = Color(0.0117647, 0, 1, 1)
-light_energy = 1.127
-light_indirect_energy = 0.0
-light_specular = 2.179
-omni_range = 5.406
-
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000202179, -3.00918, 0.00372803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000202179, -0.873387, 0.00372803)
+target_position = Vector3(0, -30, 0)
+collision_mask = 4
 
-[node name="Shadow" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.515, 0, 0, 0, 0.515, 0, 0, 0, 0.515, -0.0242834, 1.04543, -0.00162363)
-mesh = SubResource("CylinderMesh_fhrxw")
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -0.137627, 1.16379, -0.14071)
+light_color = Color(0.701961, 0.701961, 0.701961, 1)
+light_energy = 5.096
+light_negative = true
+spot_range = 60.386
+spot_angle = 11.95
+spot_angle_attenuation = 0.250001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_e7kud")
