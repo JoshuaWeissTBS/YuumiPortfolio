@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=39 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
+[ext_resource type="PackedScene" uid="uid://e30by6f4q045" path="res://assets/objects/book_of_thresholds/book_of_thresholds.tscn" id="2_nxdpm"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
 [ext_resource type="PackedScene" uid="uid://bh0n2rrqfbt12" path="res://assets/nature/normal_trees/normal_tree_3.tscn" id="5_yhxlk"]
@@ -25,10 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://cs1bxnfvikk4n" path="res://assets/nature/rocks/rock_2.tscn" id="25_f8k3x"]
 [ext_resource type="PackedScene" uid="uid://1pma402cs8gn" path="res://assets/nature/rocks/rock_3.tscn" id="26_bakm0"]
 [ext_resource type="PackedScene" uid="uid://c5nncwrd84jyk" path="res://characters/book/book.tscn" id="27_bkfm4"]
-[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
 [ext_resource type="PackedScene" uid="uid://cvr8nvxm8mhca" path="res://assets/nature/rocks/rock_4.tscn" id="27_xkwp0"]
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 [ext_resource type="ArrayMesh" uid="uid://einv7shagj1d" path="res://assets/nature/petals/petals_4.res" id="29_6y62g"]
+[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter/lost_chapter.tscn" id="29_mhuct"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -90,6 +91,9 @@ fov = 46.6
 script = ExtResource("1_kqyrg")
 offset = Vector3(0, 12.85, 19.305)
 smooth_speed = 2.5
+
+[node name="BookOfThresholds" parent="Camera3D" instance=ExtResource("2_nxdpm")]
+transform = Transform3D(1, 0, 0, 0, -0.00523591, -0.999986, 0, 0.999986, -0.00523591, 1.385, 0.113, -4.06)
 
 [node name="PlayerController" parent="." groups=["PLAYER"] instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
@@ -292,10 +296,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.9543)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.91404)
 shape = SubResource("BoxShape3D_qxokf")
 
-[node name="lost_chapter2" parent="." instance=ExtResource("27_sh7uk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
-portfolio_section = "about_me"
-
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
 transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)
 
@@ -308,3 +308,9 @@ randomness = 1.0
 visibility_aabb = AABB(-10.5088, -25.4599, -38.8915, 21.0176, 39.1941, 87.9226)
 process_material = SubResource("ParticleProcessMaterial_k5m66")
 draw_pass_1 = ExtResource("29_6y62g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="LostChapter" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89045, 2.39011, -4.80776)
