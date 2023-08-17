@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c32r52ps1n4dv"]
+
+[ext_resource type="Script" path="res://info_panel/swift_by_knight_info.gd" id="1_wexdv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7ug5"]
+font_size = 66
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_121bd"]
+font_size = 41
+
+[node name="SwiftByKnightInfo" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_wexdv")
+
+[node name="LeftPage" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="LeftPage"]
+layout_mode = 2
+text = "Swift by Knight (Video Game)"
+label_settings = SubResource("LabelSettings_e7ug5")
+
+[node name="Label" type="Label" parent="LeftPage"]
+layout_mode = 2
+text = "Swift by Knight is a 2D platformer made in the Godot game engine that puts you in control of Jack, the Nimble Knight, on a quest for speed and precision. Bounce off enemies, grapple, and utilize the unique level mechanics to navigate with speed and finesse."
+label_settings = SubResource("LabelSettings_121bd")
+autowrap_mode = 3
+
+[node name="RightPage" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

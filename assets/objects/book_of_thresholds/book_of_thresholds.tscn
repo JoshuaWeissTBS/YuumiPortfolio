@@ -486,6 +486,22 @@ nodes/open/position = Vector2(-180, 100)
 nodes/output/position = Vector2(380, 220)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Transition", &"Transition", 0, &"open", &"Transition", 1, &"open 2", &"Transition", 2, &"hide"]
 
+[sub_resource type="Animation" id="Animation_kso45"]
+resource_name = "Hide"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_un3d7"]
 resource_name = "Open"
 tracks/0/type = "rotation_3d"
@@ -546,22 +562,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
-}
-
-[sub_resource type="Animation" id="Animation_kso45"]
-resource_name = "Hide"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3uba"]

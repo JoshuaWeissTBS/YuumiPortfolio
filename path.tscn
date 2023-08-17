@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=40 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 [ext_resource type="ArrayMesh" uid="uid://einv7shagj1d" path="res://assets/nature/petals/petals_4.res" id="29_6y62g"]
 [ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter/lost_chapter.tscn" id="29_mhuct"]
+[ext_resource type="PackedScene" uid="uid://c32r52ps1n4dv" path="res://info_panel/swift_by_knight_info.tscn" id="30_sd6wn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -93,7 +94,7 @@ offset = Vector3(0, 12.85, 19.305)
 smooth_speed = 2.5
 
 [node name="BookOfThresholds" parent="Camera3D" instance=ExtResource("2_nxdpm")]
-transform = Transform3D(1, 0, 0, 0, -0.00523591, -0.999986, 0, 0.999986, -0.00523591, 1.385, 0.113, -4.06)
+transform = Transform3D(1, 0, 0, 0, -0.00523591, -0.999986, 0, 0.999986, -0.00523591, 1.405, 0.128, -4.06)
 
 [node name="PlayerController" parent="." groups=["PLAYER"] instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
@@ -310,7 +311,35 @@ process_material = SubResource("ParticleProcessMaterial_k5m66")
 draw_pass_1 = ExtResource("29_6y62g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1260, 670)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -300.0
+offset_right = 600.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SwiftByKnightInfo" parent="CanvasLayer/Control" instance=ExtResource("30_sd6wn")]
+layout_mode = 1
 
 [node name="LostChapter" parent="." instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89045, 2.39011, -4.80776)
+portfolio_info = ExtResource("30_sd6wn")

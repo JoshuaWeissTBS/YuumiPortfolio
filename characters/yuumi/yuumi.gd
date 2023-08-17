@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 const MAX_ROTATE_SPEED = 5
+var in_menu = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -23,7 +24,6 @@ func turn_towards(target_direction: Vector3, max_angular_speed: float, delta):
 		$Player.transform.basis = Basis(current_rotation * Quaternion(Vector3.UP, angle_to_target))
 
 func _physics_process(delta):
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -35,6 +35,9 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	if (in_menu):
+		input_dir = Vector2.ZERO
+		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#var quatDirection = Quaternion(dihow torection.x, direction.y, direction.z, 1)
 
@@ -44,8 +47,16 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+	
+		
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
 	$Shadow.global_position = $RayCast3D.get_collision_point() + Vector3(0, 0.1, 0)
 
 	move_and_slide()
 
+
+func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if (area.is_in_group("LOST_CHAPTER")):
+		in_menu = true
+		var portfolio_info_scene = area.collect()
+		# TODO: display portfolio info
