@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 
 const SPEED = 10.0
-const JUMP_VELOCITY = 4.5
 const MAX_ROTATE_SPEED = 5
 var in_menu = false
 
@@ -28,9 +27,12 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# Close book
+	if Input.is_action_just_pressed("ui_accept") and in_menu:
+		$"../Camera3D/BookOfThresholds".close_book()
+		in_menu = false
+		var tween = get_tree().create_tween()
+		tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

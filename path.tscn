@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=44 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 [ext_resource type="ArrayMesh" uid="uid://einv7shagj1d" path="res://assets/nature/petals/petals_4.res" id="29_6y62g"]
 [ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter/lost_chapter.tscn" id="29_mhuct"]
+[ext_resource type="FontFile" uid="uid://cgi4ooohpyqo3" path="res://assets/fonts/CrimsonText-BoldItalic.ttf" id="30_8t0ec"]
 [ext_resource type="PackedScene" uid="uid://c32r52ps1n4dv" path="res://info_panel/swift_by_knight_info.tscn" id="30_sd6wn"]
 [ext_resource type="Texture2D" uid="uid://bclkmt3j2227v" path="res://info_panel/swift_by_knight_info.png" id="32_kv4ia"]
 [ext_resource type="Texture2D" uid="uid://cvlaej1cnl1fh" path="res://info_panel/sand_dance_info.png" id="33_ndwi2"]
@@ -75,6 +76,14 @@ tangential_accel_max = 0.1
 angle_min = -131.6
 angle_max = 204.7
 turbulence_noise_speed_random = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0n87m"]
+font = ExtResource("30_8t0ec")
+font_size = 80
+font_color = Color(1, 1, 1, 0.870588)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.129412)
+shadow_offset = Vector2(4, 4)
 
 [node name="path" type="Node3D"]
 
@@ -313,10 +322,19 @@ process_material = SubResource("ParticleProcessMaterial_k5m66")
 draw_pass_1 = ExtResource("29_6y62g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 follow_viewport_enabled = true
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1050.0
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_0n87m")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(1260, 670)
 layout_mode = 3
 anchors_preset = 8

@@ -473,7 +473,7 @@ play_mode = 1
 animation = &"Open"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uqh5e"]
-graph_offset = Vector2(-136.32, 124.8)
+graph_offset = Vector2(-226.56, 86.4)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rlv5u")
 nodes/TimeScale/position = Vector2(200, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_olqtg")

@@ -27,6 +27,8 @@ func collect() -> CompressedTexture2D:
 	$Node3D/GPUParticles3D.emitting = false
 	$Node3D/OmniLight3D.omni_range = 2.0
 	
-	$"../Camera3D/BookOfThresholds".setBookContentTexture(portfolio_info)
+	var tween = get_tree().create_tween()
+	tween.tween_property($"../CanvasLayer/Label", "modulate", Color.WHITE, 1)
+	$"../Camera3D/BookOfThresholds".set_book_content_texture(portfolio_info)
 	
 	return portfolio_info
