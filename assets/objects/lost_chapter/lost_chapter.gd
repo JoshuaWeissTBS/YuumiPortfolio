@@ -2,11 +2,11 @@ extends Node3D
 
 @export var collected_tres: StandardMaterial3D
 @export var uncollected_tres: StandardMaterial3D
-@export var portfolio_info: PackedScene
+@export var portfolio_info: CompressedTexture2D
 var collected: bool = false # TODO: fetch collected state from local storage/cookies
 
 
-func collect() -> PackedScene:
+func collect() -> CompressedTexture2D:
 	# TODO: play sfx
 	$"../Camera3D/BookOfThresholds/AnimationTree".set("parameters/Transition/transition_request", "open")
 	$AnimationTree.set("parameters/Collected/transition_request", "collected")
@@ -26,5 +26,7 @@ func collect() -> PackedScene:
 	# Stop particles and dimmed light
 	$Node3D/GPUParticles3D.emitting = false
 	$Node3D/OmniLight3D.omni_range = 2.0
+	
+	$"../Camera3D/BookOfThresholds".setBookContentTexture(portfolio_info)
 	
 	return portfolio_info
