@@ -5,7 +5,6 @@ permissions:
 
 env:
   GODOT_VERSION: 4.0.3
-  EXPORT_NAME: JoshuaWeissPortfolio
   PROJECT_PATH: godot_project
 
 jobs:
