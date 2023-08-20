@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://doimmpyqergrk"
+path="res://.godot/imported/Rice_Crop.obj-c38e64c2c2f487a8e69d28b43b59403f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rice_Crop.obj-c38e64c2c2f487a8e69d28b43b59403f.mesh"]
+
+source_file="res://assets/nature/crops/Rice_Crop.obj"
+dest_files=["res://.godot/imported/Rice_Crop.obj-c38e64c2c2f487a8e69d28b43b59403f.mesh", "res://.godot/imported/Rice_Crop.obj-c38e64c2c2f487a8e69d28b43b59403f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ssgw2gwtgoji"
+path="res://.godot/imported/Pumpkin_Harvested.obj-27a2cf134e0f252f928f5136f5c9cd30.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pumpkin_Harvested.obj-27a2cf134e0f252f928f5136f5c9cd30.mesh"]
+
+source_file="res://assets/nature/crops/Pumpkin_Harvested.obj"
+dest_files=["res://.godot/imported/Pumpkin_Harvested.obj-27a2cf134e0f252f928f5136f5c9cd30.mesh", "res://.godot/imported/Pumpkin_Harvested.obj-27a2cf134e0f252f928f5136f5c9cd30.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
