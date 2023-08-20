@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://bplngsskbro10"]
+[gd_scene load_steps=50 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
+[ext_resource type="PackedScene" uid="uid://e30by6f4q045" path="res://assets/objects/book_of_thresholds/book_of_thresholds.tscn" id="2_nxdpm"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
 [ext_resource type="PackedScene" uid="uid://bh0n2rrqfbt12" path="res://assets/nature/normal_trees/normal_tree_3.tscn" id="5_yhxlk"]
@@ -26,15 +27,19 @@
 [ext_resource type="PackedScene" uid="uid://1pma402cs8gn" path="res://assets/nature/rocks/rock_3.tscn" id="26_bakm0"]
 [ext_resource type="ArrayMesh" uid="uid://bgyedblj7p3hq" path="res://assets/nature/crops/Rice_4.obj" id="27_akheu"]
 [ext_resource type="PackedScene" uid="uid://c5nncwrd84jyk" path="res://characters/book/book.tscn" id="27_bkfm4"]
-[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter.tscn" id="27_sh7uk"]
 [ext_resource type="PackedScene" uid="uid://cvr8nvxm8mhca" path="res://assets/nature/rocks/rock_4.tscn" id="27_xkwp0"]
 [ext_resource type="PackedScene" uid="uid://iuptdit2vvij" path="res://assets/nature/crops/mushroom_3.tscn" id="28_h2xk0"]
 [ext_resource type="PackedScene" uid="uid://c8xlbfacdeva0" path="res://assets/nature/rocks/rock_5.tscn" id="28_tlwul"]
 [ext_resource type="ArrayMesh" uid="uid://einv7shagj1d" path="res://assets/nature/petals/petals_4.res" id="29_6y62g"]
 [ext_resource type="PackedScene" uid="uid://dd077kxbgtwvf" path="res://assets/nature/crops/flowers_crop.tscn" id="29_kilp3"]
+[ext_resource type="PackedScene" uid="uid://blqd6oc0xgg5x" path="res://assets/objects/lost_chapter/lost_chapter.tscn" id="29_mhuct"]
+[ext_resource type="FontFile" uid="uid://cgi4ooohpyqo3" path="res://assets/fonts/CrimsonText-BoldItalic.ttf" id="30_8t0ec"]
 [ext_resource type="ArrayMesh" uid="uid://fgx7ani6k82w" path="res://assets/nature/crops/Carrot_4.obj" id="30_h46ab"]
+[ext_resource type="PackedScene" uid="uid://c32r52ps1n4dv" path="res://info_panel/swift_by_knight_info.tscn" id="30_sd6wn"]
 [ext_resource type="PackedScene" uid="uid://dmj328o8wgndu" path="res://assets/nature/crops/FlowerCombined.glb" id="31_df25h"]
+[ext_resource type="Texture2D" uid="uid://bclkmt3j2227v" path="res://info_panel/swift_by_knight_info.png" id="32_kv4ia"]
 [ext_resource type="ArrayMesh" uid="uid://bgrq5l0xknjyi" path="res://assets/nature/crops/Rice_3.obj" id="32_xkvjh"]
+[ext_resource type="Texture2D" uid="uid://cvlaej1cnl1fh" path="res://info_panel/sand_dance_info.png" id="33_ndwi2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -78,6 +83,14 @@ angle_min = -131.6
 angle_max = 204.7
 turbulence_noise_speed_random = 0.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_0n87m"]
+font = ExtResource("30_8t0ec")
+font_size = 80
+font_color = Color(1, 1, 1, 0.870588)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.129412)
+shadow_offset = Vector2(4, 4)
+
 [node name="path" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -97,7 +110,10 @@ script = ExtResource("1_kqyrg")
 offset = Vector3(0, 12.85, 19.305)
 smooth_speed = 2.5
 
-[node name="PlayerController" parent="." instance=ExtResource("1_pf4hl")]
+[node name="BookOfThresholds" parent="Camera3D" instance=ExtResource("2_nxdpm")]
+transform = Transform3D(1, 0, 0, 0, -0.00523591, -0.999986, 0, 0.999986, -0.00523591, 1.405, 0.128, -4.06)
+
+[node name="PlayerController" parent="." groups=["PLAYER"] instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
 
 [node name="Node" type="Node" parent="."]
@@ -299,9 +315,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.9543)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.91404)
 shape = SubResource("BoxShape3D_qxokf")
 
-[node name="lost_chapter2" parent="." instance=ExtResource("27_sh7uk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03759, 2.05335, -5.35805)
-
 [node name="Decorations" type="Node" parent="."]
 
 [node name="Rice4" type="MeshInstance3D" parent="Decorations"]
@@ -404,3 +417,77 @@ randomness = 1.0
 visibility_aabb = AABB(-10.5088, -25.4599, -38.8915, 21.0176, 39.1941, 87.9226)
 process_material = SubResource("ParticleProcessMaterial_k5m66")
 draw_pass_1 = ExtResource("29_6y62g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -30.0
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_0n87m")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(1260, 670)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -300.0
+offset_right = 600.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SwiftByKnightInfo" parent="CanvasLayer/Control" instance=ExtResource("30_sd6wn")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LostChapter" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 2.39011, -2.222)
+portfolio_info = ExtResource("32_kv4ia")
+
+[node name="LostChapter2" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22103, 13.7186, 45.3282)
+portfolio_info = ExtResource("33_ndwi2")
+
+[node name="LostChapter3" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.512, 13.7186, 23.9124)
+portfolio_info = ExtResource("30_sd6wn")
+
+[node name="LostChapter4" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4228, 13.7186, 5.39636)
+portfolio_info = ExtResource("30_sd6wn")
+
+[node name="LostChapter5" parent="." instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96632, 13.7186, -45.1207)
+portfolio_info = ExtResource("30_sd6wn")
