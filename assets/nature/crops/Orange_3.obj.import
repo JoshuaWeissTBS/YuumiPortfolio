@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://71amw7n185x4"
+path="res://.godot/imported/Orange_3.obj-55ae1c3c1be4254bd836e990a9db6cf3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Orange_3.obj-55ae1c3c1be4254bd836e990a9db6cf3.mesh"]
+
+source_file="res://assets/nature/crops/Orange_3.obj"
+dest_files=["res://.godot/imported/Orange_3.obj-55ae1c3c1be4254bd836e990a9db6cf3.mesh", "res://.godot/imported/Orange_3.obj-55ae1c3c1be4254bd836e990a9db6cf3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
