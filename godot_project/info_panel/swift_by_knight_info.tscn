@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c32r52ps1n4dv"]
+
+[ext_resource type="Script" path="res://info_panel/swift_by_knight_info.gd" id="1_wexdv"]
+[ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="2_n7uqf"]
+[ext_resource type="FontFile" uid="uid://dncl4pbcf4154" path="res://assets/fonts/CrimsonText-Regular.ttf" id="3_cspb0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7ug5"]
+font = ExtResource("2_n7uqf")
+font_size = 45
+font_color = Color(0.0980392, 0.0470588, 0, 1)
+shadow_size = 15
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_121bd"]
+font = ExtResource("3_cspb0")
+font_size = 23
+font_color = Color(0, 0, 0, 1)
+
+[node name="SwiftByKnightInfo" type="HBoxContainer"]
+clip_contents = true
+anchors_preset = -1
+anchor_right = 0.656
+anchor_bottom = 0.62
+offset_right = 0.479965
+offset_bottom = 0.399995
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_wexdv")
+
+[node name="LeftPage" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="LeftPage"]
+layout_mode = 2
+text = "Swift by Knight (Video Game)"
+label_settings = SubResource("LabelSettings_e7ug5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="LeftPage"]
+layout_mode = 2
+text = "Swift by Knight is a 2D platformer made in the Godot game engine that puts you in control of Jack, the Nimble Knight, on a quest for speed and precision. Bounce off enemies, grapple, and utilize the unique level mechanics to navigate with speed and finesse.
+
+The highest priority of Swift by Knight is fun gameplay. A great deal of time was spent tuning and refining the core mechanics, being the movement physics, and attacking/bouncing physics to make it satisfying, challenging yet rewarding.
+
+"
+label_settings = SubResource("LabelSettings_121bd")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="LeftPage"]
+layout_mode = 2
+text = "Current next steps:
+- Add a couple easier levels ~ 30 hours
+- Implement the grappling hook/ninja rope ~ 40 hours
+- Integrate Steam leaderboards ~ 15 hours
+"
+label_settings = SubResource("LabelSettings_121bd")
+autowrap_mode = 3
+
+[node name="RightPage" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

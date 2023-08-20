@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://csxhrlnjfycef"]
-
-[node name="Flower_1" type="Node3D"]
-
-[node name="Flower_12" type="MeshInstance3D" parent="."]
-skeleton = NodePath("")

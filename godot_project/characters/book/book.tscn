@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5nncwrd84jyk"]
+
+[ext_resource type="Script" path="res://characters/book/book.gd" id="1_xy6bt"]
+[ext_resource type="PackedScene" uid="uid://dxyevoswhmg7k" path="res://assets/objects/book_of_thresholds/book_of_thresholds_unanimated.tscn" id="2_v35in"]
+
+[sub_resource type="Animation" id="Animation_jehah"]
+resource_name = "hovering"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r7qoi"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.00713, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rbbn4"]
+_data = {
+"hovering": SubResource("Animation_jehah"),
+"moving": SubResource("Animation_r7qoi")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skt1x"]
+animation = &"hovering"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hqkd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_his8x"]
+animation = &"moving"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_05uv2"]
+graph_offset = Vector2(-661.091, 47.4545)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_skt1x")
+nodes/Idle/position = Vector2(-360, 140)
+nodes/MovementBlend/node = SubResource("AnimationNodeBlend2_6hqkd")
+nodes/MovementBlend/position = Vector2(-80, 160)
+nodes/Moving/node = SubResource("AnimationNodeAnimation_his8x")
+nodes/Moving/position = Vector2(-380, 280)
+node_connections = [&"output", 0, &"MovementBlend", &"MovementBlend", 0, &"Idle", &"MovementBlend", 1, &"Moving"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e7kud"]
+radius = 0.44455
+
+[node name="Book" type="CharacterBody3D"]
+collision_mask = 5
+script = ExtResource("1_xy6bt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../book")
+libraries = {
+"": SubResource("AnimationLibrary_rbbn4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_05uv2")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/MovementBlend/blend_amount = 0.0
+
+[node name="book" type="Node3D" parent="."]
+transform = Transform3D(-0.56, 1.4197e-06, -5.13931e-12, 0, -2.02719e-06, -0.56, -1.4197e-06, -0.56, 2.02719e-06, 0, 0.00186119, 0)
+
+[node name="BookOfThresholdsUnanimated" parent="book" instance=ExtResource("2_v35in")]
+transform = Transform3D(1, 6.82121e-13, 1.73472e-18, -6.82121e-13, 1, 0, -4.33681e-18, 0, 1, -0.0242028, 0.350172, 0.423122)
+
+[node name="ShadowSpotLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -0.137627, 0.58129, -0.14071)
+light_color = Color(0.701961, 0.701961, 0.701961, 1)
+light_energy = 5.096
+light_negative = true
+spot_range = 60.386
+spot_angle = 11.95
+spot_angle_attenuation = 0.250001
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_e7kud")

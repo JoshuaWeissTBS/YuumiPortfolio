@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx8fhkt06lyg1"]
+
+[ext_resource type="Texture2D" uid="uid://kyec1ub47oau" path="res://assets/nature/bushes/Flowers.png" id="1_s4jii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdihg"]
+resource_name = "Flowers"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_s4jii")
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oknpm"]
+_surfaces = [{
+"aabb": AABB(-0.209641, -0.00643459, -0.180806, 0.414591, 0.104376, 0.361709),
+"format": 4097,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 4, 0, 5, 0, 0, 0, 5, 0, 6, 0, 0, 0, 6, 0, 1, 0),
+"lods": [0.113608, PackedByteArray(2, 0, 3, 0, 4, 0, 2, 0, 4, 0, 5, 0, 2, 0, 5, 0, 6, 0, 2, 0, 6, 0, 1, 0)],
+"name": "Flowers",
+"primitive": 3,
+"vertex_count": 7,
+"vertex_data": PackedByteArray(61, 55, 211, 186, 73, 217, 210, 187, 173, 49, 192, 58, 61, 60, 222, 189, 154, 188, 186, 61, 43, 52, 54, 190, 38, 22, 202, 61, 44, 48, 190, 61, 28, 37, 57, 190, 114, 222, 81, 62, 215, 152, 197, 61, 21, 218, 68, 187, 101, 48, 212, 61, 142, 149, 200, 61, 234, 77, 54, 62, 254, 33, 212, 189, 216, 33, 197, 61, 214, 62, 57, 62, 48, 172, 86, 190, 119, 53, 190, 61, 9, 113, 63, 59)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a2pyy"]
+resource_name = "Petals_4_Plane_033"
+_surfaces = [{
+"aabb": AABB(-0.209641, -0.00643459, -0.180806, 0.414591, 0.104376, 0.361709),
+"attribute_data": PackedByteArray(50, 34, 29, 63, 220, 81, 62, 62, 243, 140, 26, 63, 244, 141, 200, 62, 230, 104, 220, 62, 36, 98, 143, 62, 97, 147, 225, 62, 112, 244, 151, 61, 112, 183, 31, 63, 128, 193, 163, 188, 241, 15, 76, 63, 224, 190, 187, 61, 180, 122, 73, 63, 188, 84, 152, 62, 112, 183, 31, 63, 128, 193, 163, 188),
+"format": 4119,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 4, 0, 5, 0, 0, 0, 5, 0, 6, 0, 0, 0, 6, 0, 1, 0),
+"lods": [0.113608, PackedByteArray(2, 0, 3, 0, 7, 0, 2, 0, 7, 0, 5, 0, 2, 0, 5, 0, 6, 0, 2, 0, 6, 0, 1, 0)],
+"material": SubResource("StandardMaterial3D_qdihg"),
+"name": "Flowers",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(61, 55, 211, 186, 73, 217, 210, 187, 173, 49, 192, 58, 45, 125, 238, 254, 33, 51, 7, 192, 61, 60, 222, 189, 154, 188, 186, 61, 43, 52, 54, 190, 170, 146, 1, 206, 78, 52, 247, 190, 38, 22, 202, 61, 44, 48, 190, 61, 28, 37, 57, 190, 0, 109, 83, 205, 170, 69, 202, 176, 114, 222, 81, 62, 215, 152, 197, 61, 21, 218, 68, 187, 6, 85, 158, 213, 5, 69, 112, 177, 101, 48, 212, 61, 142, 149, 200, 61, 234, 77, 54, 62, 116, 75, 88, 236, 81, 52, 19, 193, 254, 33, 212, 189, 216, 33, 197, 61, 214, 62, 57, 62, 111, 179, 88, 238, 11, 69, 72, 207, 48, 172, 86, 190, 119, 53, 190, 61, 9, 113, 63, 59, 140, 170, 55, 215, 105, 68, 159, 206, 101, 48, 212, 61, 142, 149, 200, 61, 234, 77, 54, 62, 126, 97, 127, 233, 81, 52, 19, 193)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_oknpm")
+
+[node name="Petals_4" type="Node3D"]
+
+[node name="Petals_42" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.940995, -0.338421, 0, 0.338421, 0.940995, 0, 0, 0)
+mesh = SubResource("ArrayMesh_a2pyy")
+skeleton = NodePath("")
