@@ -5,6 +5,7 @@ permissions:
 
 env:
   GODOT_VERSION: 4.0.3
+  EXPORT_NAME: index
   PROJECT_PATH: godot_project
 
 jobs:
@@ -26,7 +27,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          godot -v --headless --export-release "Web" build/web/index.html
+          godot -v --headless --export-release "HTML5" build/web/index.html
       - name: Install rsync 📚
         run: |
           apt-get update && apt-get install -y rsync curl
