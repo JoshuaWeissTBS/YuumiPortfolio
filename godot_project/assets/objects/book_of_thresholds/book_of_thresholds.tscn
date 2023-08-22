@@ -599,6 +599,7 @@ _data = {
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
