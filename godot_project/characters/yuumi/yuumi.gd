@@ -4,7 +4,8 @@ const collected_chapters = 0 # TODO: replace with
 const MAX_CHAPTERS = 8 # TODO: replace with real amount
 const SPEED = 10.0
 const MAX_ROTATE_SPEED = 5
-var in_menu = false
+var in_book = false
+var in_collection_menu = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -27,18 +28,29 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if in_book:
+		# Close book
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("collection"):
+			$"../Camera3D/BookOfThresholds".close_book()
+			in_book = false
+			var tween = get_tree().create_tween()
+			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
 
-	# Close book
-	if Input.is_action_just_pressed("ui_accept") and in_menu:
-		$"../Camera3D/BookOfThresholds".close_book()
-		in_menu = false
-		var tween = get_tree().create_tween()
-		tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+	if in_collection_menu:
+		# Close collection menu
+		if Input.is_action_just_pressed("collection") or Input.is_action_just_pressed("ui_accept"):
+			in_collection_menu = false
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".close_menu()
+	else:
+		if Input.is_action_just_pressed("collection"):
+			in_collection_menu = true
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".open_menu()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-	if (in_menu):
+	if (in_book):
 		input_dir = Vector2.ZERO
 		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -55,13 +67,14 @@ func _physics_process(delta):
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
 	$Shadow.global_position = $RayCast3D.get_collision_point() + Vector3(0, 0.1, 0)
 
+
 	move_and_slide()
 
 
 func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if (area.is_in_group("LOST_CHAPTER")):
 		var lost_chapter = area
-		in_menu = true
+		in_book = true
 		if not lost_chapter.collected:
 			get_parent().increment_collected_chapters()
 		var portfolio_info_scene = area.collect()

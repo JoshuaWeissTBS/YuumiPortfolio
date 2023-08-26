@@ -1,4 +1,5 @@
 extends Node3D
+class_name LostChapter
 
 @export var collected_tres: StandardMaterial3D
 @export var uncollected_tres: StandardMaterial3D
