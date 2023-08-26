@@ -282,7 +282,6 @@ animation = &"hovering_collected"
 animation = &"hovering_uncollected"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0kwtp"]
-graph_offset = Vector2(-352, 20)
 nodes/Collected/node = SubResource("AnimationNodeTransition_wflk2")
 nodes/Collected/position = Vector2(40, 40)
 nodes/hovering_collected/node = SubResource("AnimationNodeAnimation_lavl4")
@@ -301,7 +300,7 @@ uncollected_tres = ExtResource("3_853xc")
 shape = SubResource("CylinderShape3D_a3nhc")
 
 [node name="Node3D" type="Node3D" parent="." groups=["LOST_CHAPTER"]]
-transform = Transform3D(1, 2.15993e-07, 4.46115e-06, 0, 0.99883, -0.0483599, -4.46638e-06, 0.0483599, 0.99883, 0, 0.999847, 0)
+transform = Transform3D(1, 2.86526e-07, 4.45718e-06, 0, 0.99794, -0.0641518, -4.46638e-06, 0.0641518, 0.99794, 0, 0.888138, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" groups=["LOST_CHAPTER"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0934176, 0)

@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-
+const collected_chapters = 0 # TODO: replace with 
+const MAX_CHAPTERS = 8 # TODO: replace with real amount
 const SPEED = 10.0
 const MAX_ROTATE_SPEED = 5
 var in_menu = false
@@ -59,6 +60,8 @@ func _physics_process(delta):
 
 func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if (area.is_in_group("LOST_CHAPTER")):
+		var lost_chapter = area
 		in_menu = true
+		if not lost_chapter.collected:
+			get_parent().increment_collected_chapters()
 		var portfolio_info_scene = area.collect()
-		# TODO: display portfolio info

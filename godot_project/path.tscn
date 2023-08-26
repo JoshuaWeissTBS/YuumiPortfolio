@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=54 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
+[ext_resource type="Script" path="res://Main.gd" id="1_w08bi"]
 [ext_resource type="PackedScene" uid="uid://e30by6f4q045" path="res://assets/objects/book_of_thresholds/book_of_thresholds.tscn" id="2_nxdpm"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
@@ -97,7 +98,8 @@ shadow_offset = Vector2(4, 4)
 font = ExtResource("36_twmjy")
 font_size = 56
 
-[node name="path" type="Node3D"]
+[node name="Main" type="Node3D"]
+script = ExtResource("1_w08bi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

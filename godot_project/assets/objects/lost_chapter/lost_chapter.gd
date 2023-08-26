@@ -7,6 +7,8 @@ var collected: bool = false # TODO: fetch collected state from local storage/coo
 
 
 func collect() -> CompressedTexture2D:
+	collected = true
+	
 	# TODO: play sfx
 	$"../Camera3D/BookOfThresholds/AnimationTree".set("parameters/Transition/transition_request", "open")
 	$AnimationTree.set("parameters/Collected/transition_request", "collected")
