@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=52 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bclkmt3j2227v" path="res://info_panel/swift_by_knight_info.png" id="32_kv4ia"]
 [ext_resource type="ArrayMesh" uid="uid://bgrq5l0xknjyi" path="res://assets/nature/crops/Rice_3.obj" id="32_xkvjh"]
 [ext_resource type="Texture2D" uid="uid://cvlaej1cnl1fh" path="res://info_panel/sand_dance_info.png" id="33_ndwi2"]
+[ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="36_twmjy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -82,6 +83,10 @@ tangential_accel_max = 0.1
 angle_min = -131.6
 angle_max = 204.7
 turbulence_noise_speed_random = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ta6yg"]
+font = ExtResource("36_twmjy")
+font_size = 56
 
 [sub_resource type="LabelSettings" id="LabelSettings_0n87m"]
 font = ExtResource("30_8t0ec")
@@ -420,6 +425,18 @@ draw_pass_1 = ExtResource("29_6y62g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="LostChapterCollection" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = -100.0
+offset_right = 228.0
+offset_bottom = -23.0
+grow_vertical = 0
+text = "0/7"
+label_settings = SubResource("LabelSettings_ta6yg")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
