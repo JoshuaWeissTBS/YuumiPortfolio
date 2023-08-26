@@ -300,7 +300,7 @@ uncollected_tres = ExtResource("3_853xc")
 shape = SubResource("CylinderShape3D_a3nhc")
 
 [node name="Node3D" type="Node3D" parent="." groups=["LOST_CHAPTER"]]
-transform = Transform3D(1, 2.86526e-07, 4.45718e-06, 0, 0.99794, -0.0641518, -4.46638e-06, 0.0641518, 0.99794, 0, 0.888138, 0)
+transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0.00144567, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" groups=["LOST_CHAPTER"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0934176, 0)

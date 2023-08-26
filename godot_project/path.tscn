@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=55 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cvlaej1cnl1fh" path="res://info_panel/sand_dance_info.png" id="33_ndwi2"]
 [ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="36_twmjy"]
 [ext_resource type="Texture2D" uid="uid://b6qjo1n62qnok" path="res://assets/objects/lost_chapter/lost_chapter_no_background.png" id="38_78cuc"]
+[ext_resource type="PackedScene" uid="uid://dkqa0lrhxgcg" path="res://chapter_collection.tscn" id="41_mgm8w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -474,12 +475,6 @@ anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="LostChapterCollectionControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 2
@@ -508,6 +503,17 @@ text = "0/7"
 label_settings = SubResource("LabelSettings_ta6yg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ChapterCollectionControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChapterCollection" parent="CanvasLayer/ChapterCollectionControl" instance=ExtResource("41_mgm8w")]
+layout_mode = 1
 
 [node name="LostChapter" parent="." instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 2.39011, -2.222)

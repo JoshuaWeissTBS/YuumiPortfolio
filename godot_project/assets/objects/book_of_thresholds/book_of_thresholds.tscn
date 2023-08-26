@@ -599,6 +599,7 @@ _data = {
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
@@ -663,5 +664,5 @@ libraries = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.085, -5.92938e-17, -1.29591e-24, -1.29591e-24, -3.71547e-09, 0.085, -5.92938e-17, -0.085, -3.71547e-09, -1.4, -0.13, -0.06)
+transform = Transform3D(0.085, -5.92938e-17, -1.29591e-24, -1.29591e-24, -3.71547e-09, 0.085, -5.92938e-17, -0.085, -3.71547e-09, -1.4, 0.203816, -0.06)
 modulate = Color(0, 0, 0, 0)
