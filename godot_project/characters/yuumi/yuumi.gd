@@ -25,20 +25,21 @@ func turn_towards(target_direction: Vector3, max_angular_speed: float, delta):
 	else:
 		$Player.transform.basis = Basis(current_rotation * Quaternion(Vector3.UP, angle_to_target))
 
+func close_book():
+	$"../Camera3D/BookOfThresholds".close_book()
+	var tween = get_tree().create_tween()
+	tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if in_book:
-			$"../Camera3D/BookOfThresholds".close_book()
-			var tween = get_tree().create_tween()
-			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+			close_book()
 		elif in_collection_menu:
 			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".close_menu()
 			in_collection_menu = false
 	if event.is_action_pressed("collection"):
 		if in_book:
-			$"../Camera3D/BookOfThresholds".close_book()
-			var tween = get_tree().create_tween()
-			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+			close_book()
 			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".open_menu()
 			in_collection_menu = true
 		elif in_collection_menu:

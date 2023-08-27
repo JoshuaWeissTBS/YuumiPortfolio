@@ -9,7 +9,7 @@ var collected: bool = false # TODO: fetch collected state from local storage/coo
 
 
 func open_book():
-	# TODO: play sfx
+	$UncollectedBookGlowSFX.stop()
 	player_controller.in_book = true
 	player_controller.in_collection_menu = false
 	var tween = get_tree().create_tween()

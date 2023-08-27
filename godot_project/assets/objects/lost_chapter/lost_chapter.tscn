@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://blqd6oc0xgg5x"]
+[gd_scene load_steps=32 format=3 uid="uid://blqd6oc0xgg5x"]
 
 [ext_resource type="Script" path="res://assets/objects/lost_chapter/lost_chapter.gd" id="1_qyuag"]
 [ext_resource type="Material" uid="uid://boslga64m2qu" path="res://assets/objects/lost_chapter/lost_chapter_collected.tres" id="2_lysgd"]
 [ext_resource type="Material" uid="uid://bwuoskgcfqas5" path="res://assets/objects/lost_chapter/lost_chapter_uncollected.tres" id="3_853xc"]
 [ext_resource type="ArrayMesh" uid="uid://bqk7tiy3rc368" path="res://assets/objects/lost_chapter/lost_chapter_particle.res" id="4_naiv6"]
+[ext_resource type="AudioStream" uid="uid://tkk4tggnonbw" path="res://assets/audio/sfx/BookGlowLooping.wav" id="5_4ekag"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a3nhc"]
 height = 4.30618
@@ -282,6 +283,7 @@ animation = &"hovering_collected"
 animation = &"hovering_uncollected"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0kwtp"]
+graph_offset = Vector2(0, -101)
 nodes/Collected/node = SubResource("AnimationNodeTransition_wflk2")
 nodes/Collected/position = Vector2(40, 40)
 nodes/hovering_collected/node = SubResource("AnimationNodeAnimation_lavl4")
@@ -300,7 +302,7 @@ uncollected_tres = ExtResource("3_853xc")
 shape = SubResource("CylinderShape3D_a3nhc")
 
 [node name="Node3D" type="Node3D" parent="." groups=["LOST_CHAPTER"]]
-transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0.00144567, 0)
+transform = Transform3D(1, 8.83963e-09, 4.46637e-06, 0, 0.999998, -0.00197915, -4.46638e-06, 0.00197915, 0.999998, 0, 0.0305662, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" groups=["LOST_CHAPTER"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0934176, 0)
@@ -364,3 +366,9 @@ active = true
 parameters/Collected/current_state = "uncollected"
 parameters/Collected/transition_request = ""
 parameters/Collected/current_index = 1
+
+[node name="UncollectedBookGlowSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_4ekag")
+autoplay = true
+max_distance = 10.0
+panning_strength = 0.5
