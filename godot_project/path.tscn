@@ -421,7 +421,7 @@ mesh = ExtResource("27_akheu")
 skeleton = NodePath("../..")
 
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
-transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)
+transform = Transform3D(-0.599443, 0, -0.280685, 0, 0.661903, 0, 0.280685, 0, -0.599443, -9.8768, 3.37497, -22.7558)
 
 [node name="LeavesParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96089, 24.2465, -16.9115)
