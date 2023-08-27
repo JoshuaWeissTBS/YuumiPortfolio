@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=58 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://dkqa0lrhxgcg" path="res://chapter_collection.tscn" id="41_mgm8w"]
 [ext_resource type="Texture2D" uid="uid://degqsj0kuqbi3" path="res://assets/ui/tab.png" id="41_vg41o"]
 [ext_resource type="AudioStream" uid="uid://h4kc5mojfjh3" path="res://assets/audio/music/YuumiMusicLooping.wav" id="46_xuauq"]
+[ext_resource type="AudioStream" uid="uid://bdrxy1t4osh4b" path="res://assets/audio/ambience/AmbienceLooping.wav" id="47_uqi7c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -565,6 +566,11 @@ player_controller = NodePath("../PlayerController")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("46_xuauq")
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_uqi7c")
 autoplay = true
 bus = &"Music"
 
