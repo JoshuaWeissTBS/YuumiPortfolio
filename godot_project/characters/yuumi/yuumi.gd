@@ -87,7 +87,9 @@ func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_
 		var lost_chapter = area
 		if not lost_chapter.collected:
 			get_parent().increment_collected_chapters()
-		lost_chapter.collect()
+			lost_chapter.collect()
+		else:
+			lost_chapter.open_book()
 
 
 func _on_time_between_foot_steps_timeout():

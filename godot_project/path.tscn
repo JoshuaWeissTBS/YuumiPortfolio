@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=61 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -47,6 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://degqsj0kuqbi3" path="res://assets/ui/tab.png" id="41_vg41o"]
 [ext_resource type="AudioStream" uid="uid://h4kc5mojfjh3" path="res://assets/audio/music/YuumiMusicLooping.wav" id="46_xuauq"]
 [ext_resource type="AudioStream" uid="uid://bdrxy1t4osh4b" path="res://assets/audio/ambience/AmbienceLooping.wav" id="47_uqi7c"]
+[ext_resource type="AudioStream" uid="uid://bgvnnmh8426vd" path="res://assets/audio/player/VO_CollectPage01.wav" id="48_use6l"]
+[ext_resource type="AudioStream" uid="uid://def8lsq6quop3" path="res://assets/audio/player/VO_CollectPage02.wav" id="49_cpt6q"]
+[ext_resource type="AudioStream" uid="uid://dmyb1lr2osl1q" path="res://assets/audio/player/VO_CollectPage03.wav" id="50_a2or0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37j8"]
 sky_energy_multiplier = 3.04
@@ -573,5 +576,14 @@ bus = &"Music"
 stream = ExtResource("47_uqi7c")
 autoplay = true
 bus = &"Music"
+
+[node name="Collect1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("48_use6l")
+
+[node name="Collect2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("49_cpt6q")
+
+[node name="Collect3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_a2or0")
 
 [editable path="CanvasLayer/ChapterCollectionControl/ChapterCollection"]

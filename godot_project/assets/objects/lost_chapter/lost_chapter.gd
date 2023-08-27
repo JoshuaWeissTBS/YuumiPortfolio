@@ -7,7 +7,6 @@ class_name LostChapter
 @export var player_controller: PlayerController
 var collected: bool = false # TODO: fetch collected state from local storage/cookies
 
-
 func open_book():
 	$UncollectedBookGlowSFX.stop()
 	player_controller.in_book = true
@@ -20,6 +19,8 @@ func open_book():
 
 func collect():
 	collected = true
+	
+	$"../".play_collected_vo()
 	
 	# Override materials
 	$Node3D/Plane.material_override = collected_tres
