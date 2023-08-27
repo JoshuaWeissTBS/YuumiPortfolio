@@ -17,13 +17,5 @@ func _process(delta):
 
 
 func _on_pressed():
-	pass
-#	print("open book")
-#	$"../../".close_menu()
-#	lostChapter.open_book()
-
-
-func _on_button_up():
-	print("open book")
-	$"../../".close_menu()
+	owner.close_menu()
 	lostChapter.open_book()

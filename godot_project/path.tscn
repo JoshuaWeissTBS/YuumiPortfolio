@@ -516,11 +516,11 @@ grow_vertical = 2
 [node name="ChapterCollection" parent="CanvasLayer/ChapterCollectionControl" instance=ExtResource("41_mgm8w")]
 layout_mode = 1
 
-[node name="SwiftByKnightButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer" index="0" node_paths=PackedStringArray("lostChapter")]
-lostChapter = NodePath("../../../../../SwiftByKnight")
+[node name="SwiftByKnightButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../SwiftByKnight")
 
-[node name="PaperStrategyButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer" index="1" node_paths=PackedStringArray("lostChapter")]
-lostChapter = NodePath("../../../../../PaperStrategy")
+[node name="PaperStrategyButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer2" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../PaperStrategy")
 
 [node name="SwiftByKnight" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 2.39011, -2.222)

@@ -17,7 +17,3 @@ func open_menu():
 
 func close_menu():
 	$AnimationPlayer.play("close")
-
-
-func _on_paper_strategy_button_pressed():
-	pass # Replace with function body.
