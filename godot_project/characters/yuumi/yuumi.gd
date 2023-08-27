@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name PlayerController
 
 const collected_chapters = 0 # TODO: replace with 
 const MAX_CHAPTERS = 8 # TODO: replace with real amount
@@ -24,33 +25,38 @@ func turn_towards(target_direction: Vector3, max_angular_speed: float, delta):
 	else:
 		$Player.transform.basis = Basis(current_rotation * Quaternion(Vector3.UP, angle_to_target))
 
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		if in_book:
+			$"../Camera3D/BookOfThresholds".close_book()
+			var tween = get_tree().create_tween()
+			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+		elif in_collection_menu:
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".close_menu()
+			in_collection_menu = false
+	if event.is_action_pressed("collection"):
+		if in_book:
+			$"../Camera3D/BookOfThresholds".close_book()
+			var tween = get_tree().create_tween()
+			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".open_menu()
+			in_collection_menu = true
+		elif in_collection_menu:
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".close_menu()
+			in_collection_menu = false
+		else:
+			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".open_menu()
+			in_collection_menu = true
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if in_book:
-		# Close book
-		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("collection"):
-			$"../Camera3D/BookOfThresholds".close_book()
-			in_book = false
-			var tween = get_tree().create_tween()
-			tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
-
-	if in_collection_menu:
-		# Close collection menu
-		if Input.is_action_just_pressed("collection") or Input.is_action_just_pressed("ui_accept"):
-			in_collection_menu = false
-			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".close_menu()
-	else:
-		if Input.is_action_just_pressed("collection"):
-			in_collection_menu = true
-			$"../CanvasLayer/ChapterCollectionControl/ChapterCollection".open_menu()
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-	if (in_book):
+	if (in_book or in_collection_menu):
 		input_dir = Vector2.ZERO
 		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -63,10 +69,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
 	
-		
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
 	$Shadow.global_position = $RayCast3D.get_collision_point() + Vector3(0, 0.1, 0)
-
 
 	move_and_slide()
 
@@ -74,7 +78,6 @@ func _physics_process(delta):
 func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if (area.is_in_group("LOST_CHAPTER")):
 		var lost_chapter = area
-		in_book = true
 		if not lost_chapter.collected:
 			get_parent().increment_collected_chapters()
-		var portfolio_info_scene = area.collect()
+		lost_chapter.collect()
