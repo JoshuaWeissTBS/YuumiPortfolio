@@ -72,6 +72,12 @@ func _physics_process(delta):
 	
 	turn_towards(direction, MAX_ROTATE_SPEED, delta)
 	$Shadow.global_position = $RayCast3D.get_collision_point() + Vector3(0, 0.1, 0)
+	
+	if velocity.length() > 0 and velocity.y >= 0:
+		if $Footsteps/TimeBetweenFootSteps.is_stopped():
+			$Footsteps/TimeBetweenFootSteps.start()
+	else:
+		$Footsteps/TimeBetweenFootSteps.stop()
 
 	move_and_slide()
 
@@ -82,3 +88,7 @@ func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_
 		if not lost_chapter.collected:
 			get_parent().increment_collected_chapters()
 		lost_chapter.collect()
+
+
+func _on_time_between_foot_steps_timeout():
+	$Footsteps.play()
