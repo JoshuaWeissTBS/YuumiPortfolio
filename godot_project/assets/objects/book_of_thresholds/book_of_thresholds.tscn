@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://e30by6f4q045"]
+[gd_scene load_steps=39 format=3 uid="uid://e30by6f4q045"]
 
 [ext_resource type="Texture2D" uid="uid://cumm02d8ku6uw" path="res://assets/objects/book_of_thresholds/book_of_thresholds_brass-texture.png" id="1_ri6qk"]
 [ext_resource type="Script" path="res://assets/objects/book_of_thresholds/book_of_thresholds.gd" id="1_tllqc"]
@@ -8,7 +8,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1lx4"]
 resource_name = "Brass"
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_ri6qk")
 metallic = 1.0
@@ -16,7 +18,9 @@ roughness = 0.318088
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu55y"]
 resource_name = "Leather"
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_rhubs")
 
@@ -220,14 +224,18 @@ shadow_mesh = SubResource("ArrayMesh_nlvhl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shqhl"]
 resource_name = "Paper"
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_0u7q3")
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa7ox"]
 resource_name = "PaperFace"
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4_un7pg")
 roughness = 0.845455
@@ -473,7 +481,6 @@ play_mode = 1
 animation = &"Open"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uqh5e"]
-graph_offset = Vector2(-226.56, 86.4)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rlv5u")
 nodes/TimeScale/position = Vector2(200, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_olqtg")
@@ -588,18 +595,117 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node3D/Handle/Binding2:mesh:surface_0/material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node3D/Handle/Binding2:mesh:surface_1/material:albedo_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node3D/Handle/TopPages:mesh:surface_0/material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Node3D/Handle/TopPages:mesh:surface_1/material:albedo_color")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qjp4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Handle/Binding2:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Handle/Binding2:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Handle/TopPages:mesh:surface_0/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Handle/TopPages:mesh:surface_1/material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3uba"]
 _data = {
 "Hide": SubResource("Animation_kso45"),
-"Open": SubResource("Animation_un3d7")
+"Open": SubResource("Animation_un3d7"),
+"RESET": SubResource("Animation_qjp4o")
 }
 
 [node name="BookOfThresholds" type="Node3D"]
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
-visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
