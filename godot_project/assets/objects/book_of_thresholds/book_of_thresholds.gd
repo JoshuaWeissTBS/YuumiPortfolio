@@ -15,5 +15,5 @@ func _play_close_book_vo():
 	await get_tree().create_timer(0.5).timeout
 	if $"../../Collect1".playing or $"../../Collect2".playing or $"../../Collect3".playing:
 		return
-	if rng.randi_range(0, 2) > 0:
+	if rng.randi_range(0, 3) > 0:
 		$CloseBookVO.play()
