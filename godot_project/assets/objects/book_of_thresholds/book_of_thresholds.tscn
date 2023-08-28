@@ -490,7 +490,6 @@ animation = &"Hide"
 animation = &"Open"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uqh5e"]
-graph_offset = Vector2(-627, 30)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rlv5u")
 nodes/TimeScale/position = Vector2(200, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_olqtg")
@@ -506,6 +505,7 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Transition", 
 
 [sub_resource type="Animation" id="Animation_yafmx"]
 resource_name = "ClosePlayReversed"
+step = 0.01
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -648,6 +648,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0.0745098, 0.905882, 0), Color(0, 0.072567, 0.906332, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_kso45"]
@@ -823,6 +835,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(0, 0.0745098, 0.905882, 0), Color(0, 0.072567, 0.906332, 1)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_qjp4o"]
 length = 0.001
@@ -916,10 +940,10 @@ stream_3/stream = ExtResource("13_tqg12")
 stream_3/weight = 1.0
 
 [node name="BookOfThresholds" type="Node3D"]
+visible = false
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
-visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
