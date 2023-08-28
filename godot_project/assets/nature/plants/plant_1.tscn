@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://owk4fo0nk5f6"]
+[gd_scene load_steps=11 format=3 uid="uid://owk4fo0nk5f6"]
 
 [ext_resource type="Texture2D" uid="uid://doh0dvvarvhd1" path="res://assets/nature/plants/Flowers.png" id="1_hr83p"]
+[ext_resource type="Script" path="res://assets/nature/bushes/bushes.gd" id="1_tdheo"]
+[ext_resource type="AudioStream" uid="uid://uptex8hnu8c8" path="res://assets/audio/player/YuumiBushInteract01.wav" id="3_2uqt6"]
+[ext_resource type="AudioStream" uid="uid://du5h4tcytxgo" path="res://assets/audio/player/YuumiBushInteract02.wav" id="4_2a1of"]
+[ext_resource type="AudioStream" uid="uid://cg6sj0o5onyrd" path="res://assets/audio/player/YuumiBushInteract03.wav" id="5_kyr1c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqp2q"]
 resource_name = "Flowers"
@@ -44,9 +48,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yb5of")
 
-[node name="Plant_1" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_33u5a"]
+size = Vector3(1, 0.553912, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_akfsc"]
+streams_count = 3
+stream_0/stream = ExtResource("3_2uqt6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_2a1of")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_kyr1c")
+stream_2/weight = 1.0
+
+[node name="Plant_1" type="Area3D"]
+script = ExtResource("1_tdheo")
 
 [node name="Plant_12" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.963542, 0.0897438, 0.252058, -3.72529e-09, 0.942069, -0.335418, -0.267558, 0.32319, 0.907723, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c03di")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190789, 0)
+shape = SubResource("BoxShape3D_33u5a")
+
+[node name="Bush" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_akfsc")
+attenuation_model = 3
+panning_strength = 0.1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://wkryhyc4p0xh"]
+[gd_scene load_steps=13 format=3 uid="uid://c3tio0l8xtobx"]
 
 [ext_resource type="Texture2D" uid="uid://d0uc3nq6iuies" path="res://assets/nature/bushes/Bush_Leaves.png" id="1_badhq"]
+[ext_resource type="Script" path="res://assets/nature/bushes/bushes.gd" id="1_tdftb"]
 [ext_resource type="Texture2D" uid="uid://kyec1ub47oau" path="res://assets/nature/bushes/Flowers.png" id="2_ea5gu"]
+[ext_resource type="AudioStream" uid="uid://uptex8hnu8c8" path="res://assets/audio/player/YuumiBushInteract01.wav" id="4_j3dyu"]
+[ext_resource type="AudioStream" uid="uid://du5h4tcytxgo" path="res://assets/audio/player/YuumiBushInteract02.wav" id="5_1hip7"]
+[ext_resource type="AudioStream" uid="uid://cg6sj0o5onyrd" path="res://assets/audio/player/YuumiBushInteract03.wav" id="6_vtopv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvyqf"]
 resource_name = "Bush_Leaves"
@@ -75,9 +79,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0uvg6")
 
-[node name="Bush_Flowers" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ws2iw"]
+radius = 0.471656
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kk37f"]
+streams_count = 3
+stream_0/stream = ExtResource("4_j3dyu")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_1hip7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_vtopv")
+stream_2/weight = 1.0
+
+[node name="Bush_Flowers" type="Area3D"]
+script = ExtResource("1_tdftb")
 
 [node name="Bush_Flowers2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.587788, 0.662523, -0.464293, -2.68221e-07, -0.5739, -0.818926, -0.809015, 0.481355, -0.337331, 0, 0, 0)
 mesh = SubResource("ArrayMesh_wcjas")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10799, 0)
+shape = SubResource("SphereShape3D_ws2iw")
+
+[node name="Bush" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_kk37f")
+attenuation_model = 3
+panning_strength = 0.1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

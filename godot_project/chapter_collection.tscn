@@ -1,0 +1,271 @@
+[gd_scene load_steps=14 format=3 uid="uid://dkqa0lrhxgcg"]
+
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_qc4c6"]
+[ext_resource type="Script" path="res://chapter_collection.gd" id="2_uyc4e"]
+[ext_resource type="Texture2D" uid="uid://b6qjo1n62qnok" path="res://assets/objects/lost_chapter/lost_chapter_no_background.png" id="2_xc2ix"]
+[ext_resource type="Texture2D" uid="uid://cq5sfi5phvt1c" path="res://assets/objects/lost_chapter/lost_chapter_no_background_hover.png" id="4_sqfr6"]
+[ext_resource type="Texture2D" uid="uid://d3hhvpmelvtnw" path="res://assets/objects/lost_chapter/lost_chapter_no_background_disabled.png" id="5_kwnti"]
+[ext_resource type="Script" path="res://ChapterButton.gd" id="6_mycgp"]
+[ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="7_1vf6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oh1up"]
+shader = ExtResource("1_qc4c6")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_loxm6"]
+font = ExtResource("7_1vf6t")
+font_size = 66
+
+[sub_resource type="Animation" id="Animation_1ppwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2me1s"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/blur")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/brightness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoxContainer/VBoxContainer/SwiftByKnightButton:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoxContainer/VBoxContainer2/PaperStrategyButton:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_21fib"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/blur")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/brightness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoxContainer/VBoxContainer/SwiftByKnightButton:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoxContainer/VBoxContainer2/PaperStrategyButton:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3s0dp"]
+_data = {
+"RESET": SubResource("Animation_1ppwb"),
+"close": SubResource("Animation_2me1s"),
+"open": SubResource("Animation_21fib")
+}
+
+[node name="ChapterCollection" type="ColorRect"]
+material = SubResource("ShaderMaterial_oh1up")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uyc4e")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.75
+offset_top = -90.715
+offset_right = 430.25
+offset_bottom = 292.286
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.47, 0.47)
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="SwiftByKnightButton" type="TextureButton" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+disabled = true
+texture_normal = ExtResource("2_xc2ix")
+texture_hover = ExtResource("4_sqfr6")
+texture_disabled = ExtResource("5_kwnti")
+stretch_mode = 3
+script = ExtResource("6_mycgp")
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Swift By Knight
+"
+label_settings = SubResource("LabelSettings_loxm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="PaperStrategyButton" type="TextureButton" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+disabled = true
+texture_normal = ExtResource("2_xc2ix")
+texture_hover = ExtResource("4_sqfr6")
+texture_disabled = ExtResource("5_kwnti")
+stretch_mode = 3
+script = ExtResource("6_mycgp")
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Paper Strategy"
+label_settings = SubResource("LabelSettings_loxm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3s0dp")
+}
+
+[connection signal="pressed" from="BoxContainer/VBoxContainer/SwiftByKnightButton" to="BoxContainer/VBoxContainer/SwiftByKnightButton" method="_on_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer2/PaperStrategyButton" to="BoxContainer/VBoxContainer2/PaperStrategyButton" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckq654pst40k1"]
+[gd_scene load_steps=10 format=3 uid="uid://ckq654pst40k1"]
 
 [ext_resource type="Texture2D" uid="uid://ciggnwup7c54v" path="res://assets/nature/birch_trees/BirchTree_Bark.png" id="1_mejqj"]
 [ext_resource type="Texture2D" uid="uid://c3nte1kf8amh3" path="res://assets/nature/birch_trees/BirchTree_Bark_Normal.png" id="2_i1sic"]
@@ -79,15 +79,23 @@ shadow_mesh = SubResource("ArrayMesh_t6bow")
 height = 4.93018
 radius = 0.170061
 
-[node name="BirchTree_1" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_scx4q"]
+height = 0.963759
+radius = 0.255879
 
-[node name="BirchTree_12" type="MeshInstance3D" parent="."]
+[node name="BirchTree_1" type="Area3D" groups=["TREE"]]
+
+[node name="BirchTree_12" type="MeshInstance3D" parent="." groups=["TREE"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917376, -0.166852, 0.160195)
 mesh = SubResource("ArrayMesh_mlwu5")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BirchTree_12"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BirchTree_12" groups=["TREE"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BirchTree_12/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BirchTree_12/StaticBody3D" groups=["TREE"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44511, 0)
 shape = SubResource("CylinderShape3D_mcb60")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["TREE"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.930801, 0.256288, 0.18258)
+shape = SubResource("CylinderShape3D_scx4q")
