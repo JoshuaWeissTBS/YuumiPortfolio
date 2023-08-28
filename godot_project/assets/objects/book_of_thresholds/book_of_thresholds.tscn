@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://e30by6f4q045"]
+[gd_scene load_steps=45 format=3 uid="uid://e30by6f4q045"]
 
 [ext_resource type="Texture2D" uid="uid://cumm02d8ku6uw" path="res://assets/objects/book_of_thresholds/book_of_thresholds_brass-texture.png" id="1_ri6qk"]
 [ext_resource type="Script" path="res://assets/objects/book_of_thresholds/book_of_thresholds.gd" id="1_tllqc"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bt8v07125dcr1" path="res://assets/audio/sfx/BookClose.wav" id="6_lt7s3"]
 [ext_resource type="AudioStream" uid="uid://dklh4ove3yisu" path="res://assets/audio/sfx/BookOpen01.wav" id="7_lxgnh"]
 [ext_resource type="AudioStream" uid="uid://bidvkfdb751vm" path="res://assets/audio/sfx/BookOpen02.wav" id="8_0c4vk"]
+[ext_resource type="AudioStream" uid="uid://o6ysvhe7mm0b" path="res://assets/audio/player/VO_BookClose.wav" id="9_lq2oo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1lx4"]
 resource_name = "Brass"
@@ -864,6 +865,7 @@ stream_1/weight = 1.0
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
@@ -936,3 +938,6 @@ stream = ExtResource("6_lt7s3")
 
 [node name="OpenBookSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jfe2y")
+
+[node name="CloseBookVO" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lq2oo")
