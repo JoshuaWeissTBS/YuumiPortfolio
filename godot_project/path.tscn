@@ -559,7 +559,7 @@ portfolio_info = ExtResource("30_sd6wn")
 player_controller = NodePath("../PlayerController")
 
 [node name="LostChapter4" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4228, 13.7186, 5.39636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3035, 13.7186, -1.14554)
 portfolio_info = ExtResource("30_sd6wn")
 player_controller = NodePath("../PlayerController")
 

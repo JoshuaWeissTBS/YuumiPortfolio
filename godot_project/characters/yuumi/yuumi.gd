@@ -8,6 +8,9 @@ const MAX_ROTATE_SPEED = 5
 var in_book = false
 var in_collection_menu = false
 
+# interactions
+var interacted_with_tree = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -90,6 +93,9 @@ func _on_lost_chapter_interaction_range_area_shape_entered(area_rid, area, area_
 			lost_chapter.collect()
 		else:
 			lost_chapter.open_book()
+	elif (area.is_in_group("TREE")) and not interacted_with_tree:
+		interacted_with_tree = true
+		$TreeInteractVO.play()
 
 
 func _on_time_between_foot_steps_timeout():
