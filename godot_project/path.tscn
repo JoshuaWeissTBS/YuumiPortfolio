@@ -570,11 +570,13 @@ player_controller = NodePath("../PlayerController")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("46_xuauq")
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("47_uqi7c")
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
@@ -583,6 +585,7 @@ stream = ExtResource("48_use6l")
 
 [node name="Collect2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("49_cpt6q")
+volume_db = -2.0
 
 [node name="Collect3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_a2or0")
