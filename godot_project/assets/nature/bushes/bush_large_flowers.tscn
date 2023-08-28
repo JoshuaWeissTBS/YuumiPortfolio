@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://nqn86x7f4orm"]
+[gd_scene load_steps=13 format=3 uid="uid://nqn86x7f4orm"]
 
 [ext_resource type="Texture2D" uid="uid://d0uc3nq6iuies" path="res://assets/nature/bushes/Bush_Leaves.png" id="1_ah183"]
+[ext_resource type="Script" path="res://assets/nature/bushes/bushes.gd" id="1_jm7nx"]
 [ext_resource type="Texture2D" uid="uid://kyec1ub47oau" path="res://assets/nature/bushes/Flowers.png" id="2_iefmn"]
+[ext_resource type="AudioStream" uid="uid://uptex8hnu8c8" path="res://assets/audio/player/YuumiBushInteract01.wav" id="3_70ita"]
+[ext_resource type="AudioStream" uid="uid://du5h4tcytxgo" path="res://assets/audio/player/YuumiBushInteract02.wav" id="4_uicon"]
+[ext_resource type="AudioStream" uid="uid://cg6sj0o5onyrd" path="res://assets/audio/player/YuumiBushInteract03.wav" id="5_vghf2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2gdw"]
 resource_name = "Bush_Leaves"
@@ -75,9 +79,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_exsd1")
 
-[node name="Bush_Large_Flowers" type="Node3D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l5cs7"]
+streams_count = 3
+stream_0/stream = ExtResource("3_70ita")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_uicon")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_vghf2")
+stream_2/weight = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ws7c0"]
+size = Vector3(1.46144, 0.884559, 0.239518)
+
+[node name="Bush_Large_Flowers" type="Area3D"]
+script = ExtResource("1_jm7nx")
 
 [node name="Bush_Large_Flowers2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.851137, 0.475474, 0.222463, 0.388433, -0.285388, -0.87617, -0.353107, 0.832153, -0.427595, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nmmh6")
 skeleton = NodePath("")
+
+[node name="Bush" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_l5cs7")
+attenuation_model = 3
+panning_strength = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45217, 0)
+shape = SubResource("BoxShape3D_ws7c0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
