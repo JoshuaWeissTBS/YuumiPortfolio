@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=63 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Texture2D" uid="uid://bdt1cv1w567qe" path="res://assets/hdrs/rooitou_park_4k.hdr" id="1_1lmwg"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
+[ext_resource type="Script" path="res://Main.gd" id="1_w08bi"]
 [ext_resource type="PackedScene" uid="uid://e30by6f4q045" path="res://assets/objects/book_of_thresholds/book_of_thresholds.tscn" id="2_nxdpm"]
 [ext_resource type="PackedScene" uid="uid://gqfkdgy1bxr3" path="res://assets/terrain/terrain_2.tscn" id="3_r78hx"]
 [ext_resource type="PackedScene" uid="uid://dkc1u2yggy7ys" path="res://assets/nature/normal_trees/normal_tree_2.tscn" id="4_n4ofa"]
@@ -17,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ppg5lpg18oxq" path="res://assets/nature/birch_trees/birch_tree_2.tscn" id="13_m8fm2"]
 [ext_resource type="PackedScene" uid="uid://dgc2ywhu46jj5" path="res://assets/nature/grass/grass_large_extruded.tscn" id="17_02ekf"]
 [ext_resource type="PackedScene" uid="uid://c5u8lh7rjyp7t" path="res://assets/nature/grass/grass_small.tscn" id="18_f2a6s"]
-[ext_resource type="PackedScene" uid="uid://wkryhyc4p0xh" path="res://assets/nature/bushes/bush_flowers.tscn" id="19_8jgij"]
+[ext_resource type="PackedScene" uid="uid://c3tio0l8xtobx" path="res://assets/nature/bushes/bush_flowers.tscn" id="19_8jgij"]
 [ext_resource type="PackedScene" uid="uid://nqn86x7f4orm" path="res://assets/nature/bushes/bush_large_flowers.tscn" id="20_guq6i"]
 [ext_resource type="PackedScene" uid="uid://owk4fo0nk5f6" path="res://assets/nature/plants/plant_1.tscn" id="21_ssd0r"]
 [ext_resource type="PackedScene" uid="uid://dkiutcua35l6v" path="res://assets/nature/plants/plant_2.tscn" id="22_6ggbv"]
@@ -41,6 +42,16 @@
 [ext_resource type="Texture2D" uid="uid://bclkmt3j2227v" path="res://info_panel/swift_by_knight_info.png" id="32_kv4ia"]
 [ext_resource type="ArrayMesh" uid="uid://bgrq5l0xknjyi" path="res://assets/nature/crops/Rice_3.obj" id="32_xkvjh"]
 [ext_resource type="Texture2D" uid="uid://cvlaej1cnl1fh" path="res://info_panel/sand_dance_info.png" id="33_ndwi2"]
+[ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="36_twmjy"]
+[ext_resource type="Texture2D" uid="uid://b6qjo1n62qnok" path="res://assets/objects/lost_chapter/lost_chapter_no_background.png" id="38_78cuc"]
+[ext_resource type="PackedScene" uid="uid://dkqa0lrhxgcg" path="res://chapter_collection.tscn" id="41_mgm8w"]
+[ext_resource type="Texture2D" uid="uid://degqsj0kuqbi3" path="res://assets/ui/tab.png" id="41_vg41o"]
+[ext_resource type="AudioStream" uid="uid://h4kc5mojfjh3" path="res://assets/audio/music/YuumiMusicLooping.wav" id="46_xuauq"]
+[ext_resource type="AudioStream" uid="uid://bdrxy1t4osh4b" path="res://assets/audio/ambience/AmbienceLooping.wav" id="47_uqi7c"]
+[ext_resource type="AudioStream" uid="uid://bgvnnmh8426vd" path="res://assets/audio/player/VO_CollectPage01.wav" id="48_use6l"]
+[ext_resource type="AudioStream" uid="uid://def8lsq6quop3" path="res://assets/audio/player/VO_CollectPage02.wav" id="49_cpt6q"]
+[ext_resource type="AudioStream" uid="uid://dmyb1lr2osl1q" path="res://assets/audio/player/VO_CollectPage03.wav" id="50_a2or0"]
+[ext_resource type="AudioStream" uid="uid://cp8j3cnqkdtxp" path="res://assets/audio/player/VO_CompletePageCollection.wav" id="51_aobf6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7fdy4"]
 panorama = ExtResource("1_1lmwg")
@@ -102,7 +113,16 @@ shadow_size = 8
 shadow_color = Color(0, 0, 0, 0.129412)
 shadow_offset = Vector2(4, 4)
 
-[node name="path" type="Node3D"]
+[sub_resource type="LabelSettings" id="LabelSettings_ta6yg"]
+font = ExtResource("36_twmjy")
+font_size = 41
+outline_size = 6
+outline_color = Color(1, 0.780392, 0, 0.603922)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_w08bi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.83962, 0.487368, -0.239815, 0, 0.441506, 0.897258, 0.543174, -0.753356, 0.370697, 0, 0, 0)
@@ -123,10 +143,11 @@ script = ExtResource("1_kqyrg")
 offset = Vector3(0, 12.85, 19.305)
 smooth_speed = 2.5
 
-[node name="BookOfThresholds" parent="Camera3D" instance=ExtResource("2_nxdpm")]
+[node name="BookOfThresholds" parent="Camera3D" node_paths=PackedStringArray("player_controller") instance=ExtResource("2_nxdpm")]
 transform = Transform3D(1, 0, 0, 0, -0.00523591, -0.999986, 0, 0.999986, -0.00523591, 1.405, 0.128, -4.06)
+player_controller = NodePath("../../PlayerController")
 
-[node name="PlayerController" parent="." groups=["PLAYER"] instance=ExtResource("1_pf4hl")]
+[node name="PlayerController" parent="." instance=ExtResource("1_pf4hl")]
 transform = Transform3D(0.224627, 0, 0, 0, 0.224627, 0, 0, 0, 0.224627, -1.93111, -0.0228196, -20.4228)
 
 [node name="Node" type="Node" parent="."]
@@ -419,7 +440,7 @@ mesh = ExtResource("27_akheu")
 skeleton = NodePath("../..")
 
 [node name="Book" parent="." instance=ExtResource("27_bkfm4")]
-transform = Transform3D(0.661903, 0, 0, 0, 0.661903, 0, 0, 0, 0.661903, -3.47827, 2.85618, -12.0049)
+transform = Transform3D(-0.599443, 0, -0.280685, 0, 0.661903, 0, 0.280685, 0, -0.599443, -9.8768, 3.37497, -22.7558)
 
 [node name="LeavesParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96089, 24.2465, -16.9115)
@@ -440,6 +461,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Press space to continue"
 label_settings = SubResource("LabelSettings_0n87m")
 horizontal_alignment = 1
@@ -479,28 +502,108 @@ anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
+[node name="LostChapterCollectionControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
+grow_vertical = 0
 
-[node name="LostChapter" parent="." instance=ExtResource("29_mhuct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 3.21736, -2.222)
+[node name="LostChapterSprite" type="Sprite2D" parent="CanvasLayer/LostChapterCollectionControl"]
+position = Vector2(72, -114)
+scale = Vector2(0.332143, 0.332143)
+texture = ExtResource("38_78cuc")
+
+[node name="LostChapterCollectionLabel" type="Label" parent="CanvasLayer/LostChapterCollectionControl"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -162.0
+offset_right = 118.0
+offset_bottom = -85.0
+grow_vertical = 0
+text = "0/7"
+label_settings = SubResource("LabelSettings_ta6yg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tab" type="Sprite2D" parent="CanvasLayer/LostChapterCollectionControl"]
+modulate = Color(1, 0.960784, 0.756863, 0.886275)
+position = Vector2(70, -6.99988)
+scale = Vector2(0.294118, 0.294118)
+texture = ExtResource("41_vg41o")
+
+[node name="ChapterCollectionControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ChapterCollection" parent="CanvasLayer/ChapterCollectionControl" instance=ExtResource("41_mgm8w")]
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="SwiftByKnightButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../SwiftByKnight")
+
+[node name="PaperStrategyButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer2" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../PaperStrategy")
+
+[node name="SwiftByKnight" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 2.39011, -2.222)
 portfolio_info = ExtResource("32_kv4ia")
+player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter2" parent="." instance=ExtResource("29_mhuct")]
+[node name="PaperStrategy" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22103, 13.7186, 45.3282)
 portfolio_info = ExtResource("33_ndwi2")
+player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter3" parent="." instance=ExtResource("29_mhuct")]
+[node name="LostChapter3" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.512, 13.7186, 23.9124)
 portfolio_info = ExtResource("30_sd6wn")
+player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter4" parent="." instance=ExtResource("29_mhuct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4228, 13.7186, 5.39636)
+[node name="LostChapter4" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3035, 13.7186, -1.14554)
 portfolio_info = ExtResource("30_sd6wn")
+player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter5" parent="." instance=ExtResource("29_mhuct")]
+[node name="LostChapter5" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96632, 13.7186, -45.1207)
 portfolio_info = ExtResource("30_sd6wn")
+player_controller = NodePath("../PlayerController")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_xuauq")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_uqi7c")
+volume_db = -2.0
+autoplay = true
+bus = &"Music"
+
+[node name="Collect1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("48_use6l")
+
+[node name="Collect2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("49_cpt6q")
+volume_db = -2.0
+
+[node name="Collect3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_a2or0")
+
+[node name="CompletedPageCollection" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_aobf6")
+
+[editable path="CanvasLayer/ChapterCollectionControl/ChapterCollection"]

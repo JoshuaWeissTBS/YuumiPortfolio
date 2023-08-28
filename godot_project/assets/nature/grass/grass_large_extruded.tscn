@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgc2ywhu46jj5"]
+[gd_scene load_steps=11 format=3 uid="uid://dgc2ywhu46jj5"]
 
 [ext_resource type="Texture2D" uid="uid://xgxn7dq51he5" path="res://assets/nature/grass/Grass.png" id="1_co2ts"]
+[ext_resource type="Script" path="res://assets/nature/bushes/bushes.gd" id="1_lhq3c"]
+[ext_resource type="AudioStream" uid="uid://uptex8hnu8c8" path="res://assets/audio/player/YuumiBushInteract01.wav" id="2_nkybq"]
+[ext_resource type="AudioStream" uid="uid://du5h4tcytxgo" path="res://assets/audio/player/YuumiBushInteract02.wav" id="3_mrlyd"]
+[ext_resource type="AudioStream" uid="uid://cg6sj0o5onyrd" path="res://assets/audio/player/YuumiBushInteract03.wav" id="4_63q3k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn7qa"]
 resource_name = "Grass"
@@ -41,8 +45,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rnyt8")
 
-[node name="Grass_Large_Extruded" type="Node3D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_syuun"]
+streams_count = 3
+stream_0/stream = ExtResource("2_nkybq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_mrlyd")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_63q3k")
+stream_2/weight = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ubwm"]
+size = Vector3(0.245002, 0.435388, 0.247422)
+
+[node name="Grass_Large_Extruded" type="Area3D"]
+script = ExtResource("1_lhq3c")
 
 [node name="Grass_Large_Extruded2" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_2hfsb")
 skeleton = NodePath("")
+
+[node name="Bush" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_syuun")
+attenuation_model = 3
+panning_strength = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137309, 0)
+shape = SubResource("BoxShape3D_7ubwm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

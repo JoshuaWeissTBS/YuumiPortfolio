@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv0m3aqcuydyf"]
+[gd_scene load_steps=10 format=3 uid="uid://cv0m3aqcuydyf"]
 
 [ext_resource type="Texture2D" uid="uid://ct4fqbcnqwx3o" path="res://assets/nature/normal_trees/NormalTree_Bark.png" id="1_vm4v5"]
 [ext_resource type="Texture2D" uid="uid://cql62ftad4smh" path="res://assets/nature/normal_trees/NormalTree_Bark_Normal.png" id="2_vjerc"]
@@ -80,14 +80,22 @@ shadow_mesh = SubResource("ArrayMesh_a31pk")
 height = 6.58162
 radius = 0.190693
 
-[node name="NormalTree_4" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v6652"]
+height = 1.05468
+radius = 0.311726
 
-[node name="NormalTree_42" type="MeshInstance3D" parent="."]
+[node name="NormalTree_4" type="Area3D" groups=["TREE"]]
+
+[node name="NormalTree_42" type="MeshInstance3D" parent="." groups=["TREE"]]
 mesh = SubResource("ArrayMesh_kjkpp")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NormalTree_42"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NormalTree_42" groups=["TREE"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NormalTree_42/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NormalTree_42/StaticBody3D" groups=["TREE"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18334, 0)
 shape = SubResource("CylinderShape3D_vs40g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["TREE"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490991, 0)
+shape = SubResource("CylinderShape3D_v6652")
