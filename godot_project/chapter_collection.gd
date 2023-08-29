@@ -13,7 +13,9 @@ func _process(delta):
 
 func open_menu():
 	$AnimationPlayer.play("open")
+	$Open.play()
 
 
 func close_menu():
 	$AnimationPlayer.play("close")
+	$Close.play()

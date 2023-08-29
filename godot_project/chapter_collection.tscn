@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkqa0lrhxgcg"]
+[gd_scene load_steps=16 format=3 uid="uid://dkqa0lrhxgcg"]
 
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_qc4c6"]
 [ext_resource type="Script" path="res://chapter_collection.gd" id="2_uyc4e"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d3hhvpmelvtnw" path="res://assets/objects/lost_chapter/lost_chapter_no_background_disabled.png" id="5_kwnti"]
 [ext_resource type="Script" path="res://ChapterButton.gd" id="6_mycgp"]
 [ext_resource type="FontFile" uid="uid://jvv6haunabu8" path="res://assets/fonts/CrimsonText-Bold.ttf" id="7_1vf6t"]
+[ext_resource type="AudioStream" uid="uid://d00wnomaavpa3" path="res://assets/audio/ui/UI_MenuOpen.wav" id="8_ajcvm"]
+[ext_resource type="AudioStream" uid="uid://4ktdf5l86v6" path="res://assets/audio/ui/UI_MenuClose.wav" id="9_0tkuw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oh1up"]
 shader = ExtResource("1_qc4c6")
@@ -266,6 +268,12 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_3s0dp")
 }
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ajcvm")
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_0tkuw")
 
 [connection signal="pressed" from="BoxContainer/VBoxContainer/SwiftByKnightButton" to="BoxContainer/VBoxContainer/SwiftByKnightButton" method="_on_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxContainer2/PaperStrategyButton" to="BoxContainer/VBoxContainer2/PaperStrategyButton" method="_on_pressed"]
