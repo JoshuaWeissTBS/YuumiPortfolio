@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dabd68busduni"]
+[gd_scene load_steps=63 format=3 uid="uid://dabd68busduni"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kqyrg"]
 [ext_resource type="PackedScene" uid="uid://byia3ycqno0y8" path="res://characters/yuumi/Player.tscn" id="1_pf4hl"]
@@ -66,6 +66,9 @@ tonemap_mode = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gko8b"]
 size = Vector3(14.1742, 34.1954, 9.3244)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23a8w"]
+size = Vector3(13.6827, 4.98941, 10.6712)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxokf"]
 size = Vector3(67.1674, 65.6826, 22.3166)
@@ -225,10 +228,10 @@ transform = Transform3D(4.97593, 0, 0, 0, 4.97593, 0, 0, 0, 4.97593, 8.32245, 0.
 transform = Transform3D(4.97593, 0, 0, 0, 4.97593, 0, 0, 0, 4.97593, 31.7638, 12.6624, 8.24572)
 
 [node name="Bush_Large_Flowers" parent="Node" instance=ExtResource("20_guq6i")]
-transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, 3.83943, -0.381436, -22.8594)
+transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, 2.04614, -0.381436, -22.8594)
 
 [node name="Bush_Large_Flowers2" parent="Node" instance=ExtResource("20_guq6i")]
-transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, -7.57335, -0.22456, -24.5472)
+transform = Transform3D(3.37825, 0, -0.443315, 0, 3.40721, 0, 0.443315, 0, 3.37825, -9.13994, -0.22456, -24.0335)
 
 [node name="Plant_1" parent="Node" instance=ExtResource("21_ssd0r")]
 transform = Transform3D(2.47597, 0, 0, 0, 1.74011, 1.76138, 0, -1.76138, 1.74011, 2.1798, 5.26736, 22.2942)
@@ -321,6 +324,7 @@ transform = Transform3D(-0.135236, 0, -6.54126, 0, 4.30393, 0, 3.69865, 0, -0.23
 transform = Transform3D(3.78526, 0, 5.44323, 0, 6.63001, 0, -5.44323, 0, 3.78526, 13.3232, 12.5477, -50.6555)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62523, 0, 0)
 
 [node name="House_1" parent="Node/StaticBody3D" instance=ExtResource("7_ikmok")]
 transform = Transform3D(9.34144, 0, -0.406191, 0, 6.77661, 0, 0.80922, 0, 4.68897, -1.45541, -0.428746, -28.2846)
@@ -328,6 +332,10 @@ transform = Transform3D(9.34144, 0, -0.406191, 0, 6.77661, 0, 0.80922, 0, 4.6889
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D"]
 transform = Transform3D(0.999173, 0, -0.040655, 0, 1, 0, 0.040655, 0, 0.999173, -1.40421, 0, -28.9)
 shape = SubResource("BoxShape3D_gko8b")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50476, 15.2897, -27.8977)
+shape = SubResource("BoxShape3D_23a8w")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.9543)

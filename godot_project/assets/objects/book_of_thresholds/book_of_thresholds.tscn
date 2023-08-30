@@ -504,6 +504,152 @@ nodes/open/position = Vector2(-180, 100)
 nodes/output/position = Vector2(380, 220)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Transition", &"Transition", 0, &"open", &"Transition", 1, &"close", &"Transition", 2, &"hide"]
 
+[sub_resource type="Animation" id="Animation_yafmx"]
+resource_name = "ClosePlayReversed"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Handle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0.00108852, 0.999999, 0.0666667, 1, 0, 0, 0.00460027, 0.99999, 0.1, 1, 0, 0, 0.0109859, 0.99994, 0.133333, 1, 0, 0, 0.0208432, 0.999783, 0.166667, 1, 0, 0, 0.03499, 0.999388, 0.2, 1, 0, 0, 0.0545904, 0.998509, 0.233333, 1, 0, 0, 0.081387, 0.996683, 0.266667, 1, 0, 0, 0.118174, 0.992993, 0.3, 1, 0, 0, 0.169888, 0.985464, 0.333333, 1, 0, 0, 0.246679, 0.969097, 0.366667, 1, 0, 0, 0.375628, 0.92677, 0.4, 1, 0, 0, 0.646482, 0.762929, 0.433333, 1, 0, 0, 0.855299, 0.518135, 0.466667, 1, 0, 0, 0.923271, 0.38415, 0.5, 1, 0, 0, 0.955017, 0.29655, 0.533333, 1, 0, 0, 0.972526, 0.232796, 0.566667, 1, 0, 0, 0.982954, 0.183851, 0.6, 1, 0, 0, 0.989413, 0.145124, 0.633333, 1, 0, 0, 0.993488, 0.113933, 0.666667, 1, 0, 0, 0.996071, 0.0885586, 0.7, 1, 0, 0, 0.997697, 0.0678269, 0.733333, 1, 0, 0, 0.998704, 0.0508981, 0.766667, 1, 0, 0, 0.99931, 0.0371481, 0.8, 1, 0, 0, 0.999659, 0.0261008, 0.833333, 1, 0, 0, 0.999849, 0.0173816, 0.866667, 1, 0, 0, 0.999943, 0.0106934, 0.9, 1, 0, 0, 0.999983, 0.00579504, 0.933333, 1, 0, 0, 0.999997, 0.00248583, 0.966667, 1, 0, 0, 1, 0.000600652, 1, 1, 0, 0, 1, 7.54979e-08)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Handle/Binding2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.13103, 0.479534, -1.07101, 0.366667, 1, 0.13103, 0.479534, -1.07101, 0.4, 1, -0.320179, 0.404463, -1.07101, 0.433333, 1, 0.204008, 0.503734, -1.07101, 0.466667, 1, 0.24047, 0.503734, -1.07101, 0.5, 1, 0.272648, 0.503734, -1.07101, 0.533333, 1, 0.300809, 0.503734, -1.07101, 0.566667, 1, 0.325221, 0.503734, -1.07101, 0.6, 1, 0.346153, 0.503734, -1.07101, 0.633333, 1, 0.363871, 0.503734, -1.07101, 0.666667, 1, 0.378643, 0.503734, -1.07101, 0.7, 1, 0.390737, 0.503734, -1.07101, 0.733333, 1, 0.400422, 0.503734, -1.07101, 0.766667, 1, 0.407964, 0.503734, -1.07101, 0.8, 1, 0.413632, 0.503734, -1.07101, 0.833333, 1, 0.417693, 0.503734, -1.07101, 0.866667, 1, 0.420416, 0.503734, -1.07101, 0.9, 1, 0.422067, 0.503734, -1.07101, 0.966667, 1, 0.423228, 0.503734, -1.07101, 1, 1, 0.423272, 0.503734, -1.07101)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Handle/Binding2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.00149396, 0.999999, 0.4, 1, 0, 0, -0.00149396, 0.999999, 0.433333, 1, 0, 0, -0.418375, 0.908274, 0.466667, 1, 0, 0, -0.471966, 0.881617, 0.5, 1, 0, 0, -0.517862, 0.855464, 0.533333, 1, 0, 0, -0.556847, 0.830615, 0.566667, 1, 0, 0, -0.589683, 0.807635, 0.6, 1, 0, 0, -0.617083, 0.786898, 0.633333, 1, 0, 0, -0.63971, 0.768617, 0.666667, 1, 0, 0, -0.658161, 0.752877, 0.7, 1, 0, 0, -0.67298, 0.73966, 0.733333, 1, 0, 0, -0.684656, 0.728867, 0.766667, 1, 0, 0, -0.693629, 0.720333, 0.8, 1, 0, 0, -0.700302, 0.713847, 0.833333, 1, 0, 0, -0.705046, 0.709162, 0.866667, 1, 0, 0, -0.708209, 0.706003, 0.9, 1, 0, 0, -0.71012, 0.704081, 0.933333, 1, 0, 0, -0.7111, 0.703091, 1, 1, 0, 0, -0.711512, 0.702674)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Handle/Hinge1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, -0.660029, 0.75124, 0.0333333, 1, 0, 0, -0.659881, 0.75137, 0.0666667, 1, 0, 0, -0.658845, 0.752279, 0.1, 1, 0, 0, -0.656026, 0.754738, 0.133333, 1, 0, 0, -0.65051, 0.759498, 0.166667, 1, 0, 0, -0.641341, 0.767256, 0.2, 1, 0, 0, -0.62749, 0.778624, 0.233333, 1, 0, 0, -0.607825, 0.794071, 0.266667, 1, 0, 0, -0.581069, 0.813854, 0.3, 1, 0, 0, -0.545774, 0.837932, 0.333333, 1, 0, 0, -0.500305, 0.865849, 0.366667, 1, 0, 0, -0.44285, 0.896596, 0.4, 1, 0, 0, -0.35809, 0.933687, 0.433333, 1, 0, 0, -0.178188, 0.983997, 0.466667, 1, 0, 0, 0.0660345, 0.997817, 0.5, 1, 0, 0, 0.311192, 0.950347, 0.533333, 1, 0, 0, 0.495955, 0.868348, 0.566667, 1, 0, 0, 0.58147, 0.813568, 0.6, 1, 0, 0, 0.605928, 0.79552, 0.633333, 1, 0, 0, 0.625333, 0.780358, 0.666667, 1, 0, 0, 0.640402, 0.76804, 0.7, 1, 0, 0, 0.65178, 0.758408, 0.733333, 1, 0, 0, 0.660052, 0.75122, 0.766667, 1, 0, 0, 0.665755, 0.74617, 0.8, 1, 0, 0, 0.669392, 0.742909, 0.833333, 1, 0, 0, 0.671439, 0.741059, 0.866667, 1, 0, 0, 0.672358, 0.740226, 1, 1, 0, 0, 0.672611, 0.739997)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node3D/Handle/Hinge2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, -0.660029, 0.75124, 0.0333333, 1, 0, 0, -0.659881, 0.75137, 0.0666667, 1, 0, 0, -0.658845, 0.752279, 0.1, 1, 0, 0, -0.656026, 0.754738, 0.133333, 1, 0, 0, -0.65051, 0.759498, 0.166667, 1, 0, 0, -0.641341, 0.767256, 0.2, 1, 0, 0, -0.62749, 0.778624, 0.233333, 1, 0, 0, -0.607825, 0.794071, 0.266667, 1, 0, 0, -0.581069, 0.813854, 0.3, 1, 0, 0, -0.545774, 0.837932, 0.333333, 1, 0, 0, -0.500305, 0.865849, 0.366667, 1, 0, 0, -0.44285, 0.896596, 0.4, 1, 0, 0, -0.35809, 0.933687, 0.433333, 1, 0, 0, -0.178188, 0.983997, 0.466667, 1, 0, 0, 0.0660345, 0.997817, 0.5, 1, 0, 0, 0.311192, 0.950347, 0.533333, 1, 0, 0, 0.495955, 0.868348, 0.566667, 1, 0, 0, 0.58147, 0.813568, 0.6, 1, 0, 0, 0.605928, 0.79552, 0.633333, 1, 0, 0, 0.625333, 0.780358, 0.666667, 1, 0, 0, 0.640402, 0.76804, 0.7, 1, 0, 0, 0.65178, 0.758408, 0.733333, 1, 0, 0, 0.660052, 0.75122, 0.766667, 1, 0, 0, 0.665755, 0.74617, 0.8, 1, 0, 0, 0.669392, 0.742909, 0.833333, 1, 0, 0, 0.671439, 0.741059, 0.866667, 1, 0, 0, 0.672358, 0.740226, 1, 1, 0, 0, 0.672611, 0.739997)
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector3(4, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Node3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite3D:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node3D/Handle/Binding2:mesh:surface_0/material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node3D/Handle/Binding2:mesh:surface_1/material:albedo_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node3D/Handle/TopPages:mesh:surface_0/material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Node3D/Handle/TopPages:mesh:surface_1/material:albedo_color")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CloseBookSFX:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Node3D/Handle/ShorterStem:mesh:surface_1/material:albedo_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.0745098, 0.905882, 0), Color(0, 0.072567, 0.906332, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kso45"]
 resource_name = "Hide"
 length = 0.001
@@ -739,152 +885,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0.072567, 0.906332, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_yafmx"]
-resource_name = "ClosePlayReversed"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/Handle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0.00108852, 0.999999, 0.0666667, 1, 0, 0, 0.00460027, 0.99999, 0.1, 1, 0, 0, 0.0109859, 0.99994, 0.133333, 1, 0, 0, 0.0208432, 0.999783, 0.166667, 1, 0, 0, 0.03499, 0.999388, 0.2, 1, 0, 0, 0.0545904, 0.998509, 0.233333, 1, 0, 0, 0.081387, 0.996683, 0.266667, 1, 0, 0, 0.118174, 0.992993, 0.3, 1, 0, 0, 0.169888, 0.985464, 0.333333, 1, 0, 0, 0.246679, 0.969097, 0.366667, 1, 0, 0, 0.375628, 0.92677, 0.4, 1, 0, 0, 0.646482, 0.762929, 0.433333, 1, 0, 0, 0.855299, 0.518135, 0.466667, 1, 0, 0, 0.923271, 0.38415, 0.5, 1, 0, 0, 0.955017, 0.29655, 0.533333, 1, 0, 0, 0.972526, 0.232796, 0.566667, 1, 0, 0, 0.982954, 0.183851, 0.6, 1, 0, 0, 0.989413, 0.145124, 0.633333, 1, 0, 0, 0.993488, 0.113933, 0.666667, 1, 0, 0, 0.996071, 0.0885586, 0.7, 1, 0, 0, 0.997697, 0.0678269, 0.733333, 1, 0, 0, 0.998704, 0.0508981, 0.766667, 1, 0, 0, 0.99931, 0.0371481, 0.8, 1, 0, 0, 0.999659, 0.0261008, 0.833333, 1, 0, 0, 0.999849, 0.0173816, 0.866667, 1, 0, 0, 0.999943, 0.0106934, 0.9, 1, 0, 0, 0.999983, 0.00579504, 0.933333, 1, 0, 0, 0.999997, 0.00248583, 0.966667, 1, 0, 0, 1, 0.000600652, 1, 1, 0, 0, 1, 7.54979e-08)
-tracks/1/type = "position_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/Handle/Binding2")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.13103, 0.479534, -1.07101, 0.366667, 1, 0.13103, 0.479534, -1.07101, 0.4, 1, -0.320179, 0.404463, -1.07101, 0.433333, 1, 0.204008, 0.503734, -1.07101, 0.466667, 1, 0.24047, 0.503734, -1.07101, 0.5, 1, 0.272648, 0.503734, -1.07101, 0.533333, 1, 0.300809, 0.503734, -1.07101, 0.566667, 1, 0.325221, 0.503734, -1.07101, 0.6, 1, 0.346153, 0.503734, -1.07101, 0.633333, 1, 0.363871, 0.503734, -1.07101, 0.666667, 1, 0.378643, 0.503734, -1.07101, 0.7, 1, 0.390737, 0.503734, -1.07101, 0.733333, 1, 0.400422, 0.503734, -1.07101, 0.766667, 1, 0.407964, 0.503734, -1.07101, 0.8, 1, 0.413632, 0.503734, -1.07101, 0.833333, 1, 0.417693, 0.503734, -1.07101, 0.866667, 1, 0.420416, 0.503734, -1.07101, 0.9, 1, 0.422067, 0.503734, -1.07101, 0.966667, 1, 0.423228, 0.503734, -1.07101, 1, 1, 0.423272, 0.503734, -1.07101)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/Handle/Binding2")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.00149396, 0.999999, 0.4, 1, 0, 0, -0.00149396, 0.999999, 0.433333, 1, 0, 0, -0.418375, 0.908274, 0.466667, 1, 0, 0, -0.471966, 0.881617, 0.5, 1, 0, 0, -0.517862, 0.855464, 0.533333, 1, 0, 0, -0.556847, 0.830615, 0.566667, 1, 0, 0, -0.589683, 0.807635, 0.6, 1, 0, 0, -0.617083, 0.786898, 0.633333, 1, 0, 0, -0.63971, 0.768617, 0.666667, 1, 0, 0, -0.658161, 0.752877, 0.7, 1, 0, 0, -0.67298, 0.73966, 0.733333, 1, 0, 0, -0.684656, 0.728867, 0.766667, 1, 0, 0, -0.693629, 0.720333, 0.8, 1, 0, 0, -0.700302, 0.713847, 0.833333, 1, 0, 0, -0.705046, 0.709162, 0.866667, 1, 0, 0, -0.708209, 0.706003, 0.9, 1, 0, 0, -0.71012, 0.704081, 0.933333, 1, 0, 0, -0.7111, 0.703091, 1, 1, 0, 0, -0.711512, 0.702674)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node3D/Handle/Hinge1")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, -0.660029, 0.75124, 0.0333333, 1, 0, 0, -0.659881, 0.75137, 0.0666667, 1, 0, 0, -0.658845, 0.752279, 0.1, 1, 0, 0, -0.656026, 0.754738, 0.133333, 1, 0, 0, -0.65051, 0.759498, 0.166667, 1, 0, 0, -0.641341, 0.767256, 0.2, 1, 0, 0, -0.62749, 0.778624, 0.233333, 1, 0, 0, -0.607825, 0.794071, 0.266667, 1, 0, 0, -0.581069, 0.813854, 0.3, 1, 0, 0, -0.545774, 0.837932, 0.333333, 1, 0, 0, -0.500305, 0.865849, 0.366667, 1, 0, 0, -0.44285, 0.896596, 0.4, 1, 0, 0, -0.35809, 0.933687, 0.433333, 1, 0, 0, -0.178188, 0.983997, 0.466667, 1, 0, 0, 0.0660345, 0.997817, 0.5, 1, 0, 0, 0.311192, 0.950347, 0.533333, 1, 0, 0, 0.495955, 0.868348, 0.566667, 1, 0, 0, 0.58147, 0.813568, 0.6, 1, 0, 0, 0.605928, 0.79552, 0.633333, 1, 0, 0, 0.625333, 0.780358, 0.666667, 1, 0, 0, 0.640402, 0.76804, 0.7, 1, 0, 0, 0.65178, 0.758408, 0.733333, 1, 0, 0, 0.660052, 0.75122, 0.766667, 1, 0, 0, 0.665755, 0.74617, 0.8, 1, 0, 0, 0.669392, 0.742909, 0.833333, 1, 0, 0, 0.671439, 0.741059, 0.866667, 1, 0, 0, 0.672358, 0.740226, 1, 1, 0, 0, 0.672611, 0.739997)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = true
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node3D/Handle/Hinge2")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, -0.660029, 0.75124, 0.0333333, 1, 0, 0, -0.659881, 0.75137, 0.0666667, 1, 0, 0, -0.658845, 0.752279, 0.1, 1, 0, 0, -0.656026, 0.754738, 0.133333, 1, 0, 0, -0.65051, 0.759498, 0.166667, 1, 0, 0, -0.641341, 0.767256, 0.2, 1, 0, 0, -0.62749, 0.778624, 0.233333, 1, 0, 0, -0.607825, 0.794071, 0.266667, 1, 0, 0, -0.581069, 0.813854, 0.3, 1, 0, 0, -0.545774, 0.837932, 0.333333, 1, 0, 0, -0.500305, 0.865849, 0.366667, 1, 0, 0, -0.44285, 0.896596, 0.4, 1, 0, 0, -0.35809, 0.933687, 0.433333, 1, 0, 0, -0.178188, 0.983997, 0.466667, 1, 0, 0, 0.0660345, 0.997817, 0.5, 1, 0, 0, 0.311192, 0.950347, 0.533333, 1, 0, 0, 0.495955, 0.868348, 0.566667, 1, 0, 0, 0.58147, 0.813568, 0.6, 1, 0, 0, 0.605928, 0.79552, 0.633333, 1, 0, 0, 0.625333, 0.780358, 0.666667, 1, 0, 0, 0.640402, 0.76804, 0.7, 1, 0, 0, 0.65178, 0.758408, 0.733333, 1, 0, 0, 0.660052, 0.75122, 0.766667, 1, 0, 0, 0.665755, 0.74617, 0.8, 1, 0, 0, 0.669392, 0.742909, 0.833333, 1, 0, 0, 0.671439, 0.741059, 0.866667, 1, 0, 0, 0.672358, 0.740226, 1, 1, 0, 0, 0.672611, 0.739997)
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node3D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Vector3(4, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node3D:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite3D:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.9, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Node3D/Handle/Binding2:mesh:surface_0/material:albedo_color")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Node3D/Handle/Binding2:mesh:surface_1/material:albedo_color")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Node3D/Handle/TopPages:mesh:surface_0/material:albedo_color")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Node3D/Handle/TopPages:mesh:surface_1/material:albedo_color")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("CloseBookSFX:playing")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Node3D/Handle/ShorterStem:mesh:surface_1/material:albedo_color")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0.0745098, 0.905882, 0), Color(0, 0.072567, 0.906332, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3uba"]
