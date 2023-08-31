@@ -983,7 +983,7 @@ libraries = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.085, -5.92938e-17, -1.29591e-24, -1.29591e-24, -3.71547e-09, 0.085, -5.92938e-17, -0.085, -3.71547e-09, -1.4, 0.203816, -0.06)
+transform = Transform3D(0.08, -5.58059e-17, -2.43935e-24, 0, -3.49691e-09, 0.08, -5.58059e-17, -0.08, -3.49691e-09, -1.4, 0.203816, -0.06)
 modulate = Color(0, 0, 0, 0)
 
 [node name="CloseBookSFX" type="AudioStreamPlayer" parent="."]
