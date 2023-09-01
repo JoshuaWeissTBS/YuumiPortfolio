@@ -133,6 +133,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BoxContainer/VBoxContainer4/QOTDBotButton:mouse_filter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BoxContainer/VBoxContainer5/ThankYouButton:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_21fib"]
 resource_name = "open"
@@ -209,6 +233,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BoxContainer/VBoxContainer4/QOTDBotButton:mouse_filter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BoxContainer/VBoxContainer5/ThankYouButton:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3s0dp"]
 _data = {
@@ -234,10 +282,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.75
-offset_top = -90.715
-offset_right = 430.25
-offset_bottom = 292.286
+offset_left = -449.27
+offset_top = -185.274
+offset_right = 1470.73
+offset_bottom = 381.726
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.47, 0.47)
@@ -249,6 +297,7 @@ layout_mode = 2
 [node name="SwiftByKnightButton" type="TextureButton" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 2
 disabled = true
 texture_normal = ExtResource("2_xc2ix")
 texture_hover = ExtResource("4_sqfr6")
@@ -260,27 +309,6 @@ script = ExtResource("6_mycgp")
 layout_mode = 2
 text = "Swift By Knight
 "
-label_settings = SubResource("LabelSettings_loxm6")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
-layout_mode = 2
-
-[node name="PaperStrategyButton" type="TextureButton" parent="BoxContainer/VBoxContainer2"]
-layout_mode = 2
-focus_mode = 0
-disabled = true
-texture_normal = ExtResource("2_xc2ix")
-texture_hover = ExtResource("4_sqfr6")
-texture_disabled = ExtResource("5_kwnti")
-stretch_mode = 3
-script = ExtResource("6_mycgp")
-
-[node name="Label" type="Label" parent="BoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Paper Strategy"
 label_settings = SubResource("LabelSettings_loxm6")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -308,6 +336,70 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="PaperStrategyButton" type="TextureButton" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+disabled = true
+texture_normal = ExtResource("2_xc2ix")
+texture_hover = ExtResource("4_sqfr6")
+texture_disabled = ExtResource("5_kwnti")
+stretch_mode = 3
+script = ExtResource("6_mycgp")
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Paper Strategy"
+label_settings = SubResource("LabelSettings_loxm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="QOTDBotButton" type="TextureButton" parent="BoxContainer/VBoxContainer4"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("2_xc2ix")
+texture_hover = ExtResource("4_sqfr6")
+texture_disabled = ExtResource("5_kwnti")
+stretch_mode = 3
+script = ExtResource("6_mycgp")
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "QOTD Bot"
+label_settings = SubResource("LabelSettings_loxm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="ThankYouButton" type="TextureButton" parent="BoxContainer/VBoxContainer5"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("2_xc2ix")
+texture_hover = ExtResource("4_sqfr6")
+texture_disabled = ExtResource("5_kwnti")
+stretch_mode = 3
+script = ExtResource("6_mycgp")
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer5"]
+layout_mode = 2
+text = "Thank You"
+label_settings = SubResource("LabelSettings_loxm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3s0dp")
@@ -320,5 +412,7 @@ stream = ExtResource("8_ajcvm")
 stream = ExtResource("9_0tkuw")
 
 [connection signal="pressed" from="BoxContainer/VBoxContainer/SwiftByKnightButton" to="BoxContainer/VBoxContainer/SwiftByKnightButton" method="_on_pressed"]
-[connection signal="pressed" from="BoxContainer/VBoxContainer2/PaperStrategyButton" to="BoxContainer/VBoxContainer2/PaperStrategyButton" method="_on_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxContainer3/SandDanceButton" to="BoxContainer/VBoxContainer3/SandDanceButton" method="_on_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer2/PaperStrategyButton" to="BoxContainer/VBoxContainer2/PaperStrategyButton" method="_on_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer4/QOTDBotButton" to="BoxContainer/VBoxContainer4/QOTDBotButton" method="_on_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer5/ThankYouButton" to="BoxContainer/VBoxContainer5/ThankYouButton" method="_on_pressed"]

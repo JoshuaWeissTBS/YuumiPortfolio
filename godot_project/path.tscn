@@ -548,33 +548,39 @@ metadata/_edit_lock_ = true
 [node name="SwiftByKnightButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer" index="0" node_paths=PackedStringArray("lostChapter")]
 lostChapter = NodePath("../../../../../../SwiftByKnight")
 
+[node name="SandDanceButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer3" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../SandDance")
+
 [node name="PaperStrategyButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer2" index="0" node_paths=PackedStringArray("lostChapter")]
 lostChapter = NodePath("../../../../../../PaperStrategy")
 
-[node name="SandDanceButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer3" index="0" node_paths=PackedStringArray("lostChapter")]
-lostChapter = NodePath("../../../../../../SandDance")
+[node name="QOTDBotButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer4" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../QOTDBot")
+
+[node name="ThankYouButton" parent="CanvasLayer/ChapterCollectionControl/ChapterCollection/BoxContainer/VBoxContainer5" index="0" node_paths=PackedStringArray("lostChapter")]
+lostChapter = NodePath("../../../../../../ThankYou")
 
 [node name="SwiftByKnight" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46252, 2.39011, -2.222)
 portfolio_info = ExtResource("32_kv4ia")
 player_controller = NodePath("../PlayerController")
 
-[node name="PaperStrategy" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+[node name="SandDance" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22103, 13.7186, 45.3282)
 portfolio_info = ExtResource("33_ndwi2")
 player_controller = NodePath("../PlayerController")
 
-[node name="SandDance" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+[node name="PaperStrategy" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.512, 13.7186, 23.9124)
 portfolio_info = ExtResource("33_ndwi2")
 player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter4" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+[node name="QOTDBot" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3035, 13.7186, -1.14554)
 portfolio_info = ExtResource("30_sd6wn")
 player_controller = NodePath("../PlayerController")
 
-[node name="LostChapter5" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
+[node name="ThankYou" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96632, 13.7186, -45.1207)
 portfolio_info = ExtResource("30_sd6wn")
 player_controller = NodePath("../PlayerController")

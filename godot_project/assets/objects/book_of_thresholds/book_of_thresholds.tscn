@@ -490,7 +490,6 @@ animation = &"Hide"
 animation = &"Open"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uqh5e"]
-graph_offset = Vector2(-627, 30)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rlv5u")
 nodes/TimeScale/position = Vector2(200, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_olqtg")
@@ -919,6 +918,7 @@ stream_3/weight = 1.0
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
