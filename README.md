@@ -7,9 +7,12 @@ Made with Godot
 
 # Controls
 
-WASD to walk around
+**WASD** to walk around
 
-SPACE to close Book
+**TAB** to view your collected Books
+
+**SPACE** to close Book
+
 
 If you are experiencing lag in the browser, please enable hardware acceleration.
 
@@ -31,6 +34,6 @@ Nature models | [https://quaternius.com/index.html](https://quaternius.com/index
 
 All other assets and animations by Joshua Weiss
 
-  
 
+  
 Yuumi's Magical Adventure was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
