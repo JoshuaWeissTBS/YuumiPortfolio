@@ -490,7 +490,6 @@ animation = &"Hide"
 animation = &"Open"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uqh5e"]
-graph_offset = Vector2(-627, 30)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rlv5u")
 nodes/TimeScale/position = Vector2(200, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_olqtg")
@@ -919,6 +918,7 @@ stream_3/weight = 1.0
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
@@ -983,7 +983,7 @@ libraries = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.085, -5.92938e-17, -1.29591e-24, -1.29591e-24, -3.71547e-09, 0.085, -5.92938e-17, -0.085, -3.71547e-09, -1.4, 0.203816, -0.06)
+transform = Transform3D(0.08, -5.58059e-17, -2.43935e-24, 0, -3.49691e-09, 0.08, -5.58059e-17, -0.08, -3.49691e-09, -1.4, 0.203816, -0.06)
 modulate = Color(0, 0, 0, 0)
 
 [node name="CloseBookSFX" type="AudioStreamPlayer" parent="."]
@@ -994,3 +994,4 @@ stream = SubResource("AudioStreamRandomizer_jfe2y")
 
 [node name="CloseBookVO" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dxow3")
+bus = &"VO"
