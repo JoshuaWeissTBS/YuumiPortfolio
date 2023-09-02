@@ -373,7 +373,7 @@ script = ExtResource("6_mycgp")
 
 [node name="Label" type="Label" parent="BoxContainer/VBoxContainer4"]
 layout_mode = 2
-text = "QOTD Bot"
+text = "QotD Bot"
 label_settings = SubResource("LabelSettings_loxm6")
 horizontal_alignment = 1
 vertical_alignment = 1
