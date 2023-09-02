@@ -569,7 +569,7 @@ portfolio_info = ExtResource("32_kv4ia")
 player_controller = NodePath("../PlayerController")
 
 [node name="SandDance" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("29_mhuct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22103, 13.7186, 45.3282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2059, 11.5899, 39.0864)
 portfolio_info = ExtResource("33_ndwi2")
 player_controller = NodePath("../PlayerController")
 
