@@ -994,3 +994,4 @@ stream = SubResource("AudioStreamRandomizer_jfe2y")
 
 [node name="CloseBookVO" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dxow3")
+bus = &"VO"

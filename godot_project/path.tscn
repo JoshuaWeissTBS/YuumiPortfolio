@@ -602,15 +602,19 @@ bus = &"Music"
 
 [node name="Collect1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("48_use6l")
+bus = &"VO"
 
 [node name="Collect2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("49_cpt6q")
 volume_db = -2.0
+bus = &"VO"
 
 [node name="Collect3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_a2or0")
+bus = &"VO"
 
 [node name="CompletedPageCollection" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("51_aobf6")
+bus = &"VO"
 
 [editable path="CanvasLayer/ChapterCollectionControl/ChapterCollection"]
