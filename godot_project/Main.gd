@@ -1,6 +1,6 @@
 extends Node3D
 var collected_chapters = 0 # TODO: replace with cached
-const MAX_CHAPTERS = 4 # TODO: replace with real amount
+const MAX_CHAPTERS = 5 # TODO: replace with real amount
 @onready var unplayed_collect_voicelines = [$Collect1, $Collect2, $Collect3]
 
 # Called when the node enters the scene tree for the first time.

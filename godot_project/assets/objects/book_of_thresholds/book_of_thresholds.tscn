@@ -245,6 +245,7 @@ resource_name = "PaperFace"
 transparency = 1
 cull_mode = 2
 depth_draw_mode = 1
+disable_ambient_light = true
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4_un7pg")
 roughness = 0.845455
@@ -505,7 +506,6 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Transition", 
 
 [sub_resource type="Animation" id="Animation_yafmx"]
 resource_name = "ClosePlayReversed"
-step = 0.01
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -944,6 +944,7 @@ visible = false
 script = ExtResource("1_tllqc")
 
 [node name="Node3D" type="Node3D" parent="."]
+visible = false
 
 [node name="Handle" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40238, -0.273665, 0)
@@ -1008,7 +1009,7 @@ libraries = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.085, -5.92938e-17, -1.29591e-24, -1.29591e-24, -3.71547e-09, 0.085, -5.92938e-17, -0.085, -3.71547e-09, -1.4, 0.203816, -0.06)
+transform = Transform3D(0.08, -5.58059e-17, -2.43935e-24, 0, -3.49691e-09, 0.08, -5.58059e-17, -0.08, -3.49691e-09, -1.4, 0.203816, -0.06)
 modulate = Color(0, 0, 0, 0)
 
 [node name="CloseBookSFX" type="AudioStreamPlayer" parent="."]
@@ -1019,3 +1020,4 @@ stream = SubResource("AudioStreamRandomizer_jfe2y")
 
 [node name="CloseBookVO" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dxow3")
+bus = &"VO"

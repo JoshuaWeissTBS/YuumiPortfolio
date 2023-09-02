@@ -34,7 +34,7 @@ func close_book():
 	tween.tween_property($"../CanvasLayer/Label", "modulate", Color.TRANSPARENT, 1)
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
 		if in_book:
 			close_book()
 		elif in_collection_menu:
