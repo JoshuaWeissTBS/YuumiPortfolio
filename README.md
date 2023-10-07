@@ -17,6 +17,7 @@ Made with Godot
 
 
 If you are experiencing lag in the browser, please enable hardware acceleration.
+If it is not working in your browser at all, please download and play the windows executable.
 
 # Credits:
 
